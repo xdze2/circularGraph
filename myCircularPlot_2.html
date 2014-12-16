@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.link {
+  fill: none;
+  stroke:#001;
+  stroke-width: 1.6px;
+  stroke-opacity: .5;
+   
+}
+.node {
+  stroke: none;
+  fill: #000;
+}
+.label {
+  font: 16px sans-serif;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.hive.v0.min.js"></script>
+<script>
+
+
+var width = window.innerWidth,
+    height = 600,
+    radius = 380;
+
+var xCenter = width/2,
+    yCenter = height-30; 
+
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+        .append("g");
+        //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
+
+//myData_tourner.json  myData_manger.json   myData_rouler.jso
+d3.json("myData_tourner.json", function(error, myData) {
+    var nodes = myData['nodes'],
+        links = myData['links'],
+        iDelta = myData['iDelta'],
+        nNodes = myData['nNodes'];
+    console.log( iDelta )
+ 
+    //console.log( nodes[1]['id'] )
+
+    //nNodes = nodes.length;
+   
+
+    var deltaTheta = -Math.PI/(nNodes-1);  // en radian
+
+
+    svg.selectAll("nodesLab")
+        .data(nodes)
+      .enter().append("text")
+        .attr("class", "label")
+       .text( function(d){ return d['label'] ; })
+        .attr("y", 4 ) 
+        .attr("x", 0) 
+        .attr("style", function(d){
+            if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )<0 ){
+                 return "text-anchor:end";
+               } else {   return "text-anchor:start";  }        
+            })
+        .attr("transform", function(d){return translateLabel(d);});
+
+function translateLabel(d){
+    var outerRad = radius + 10;
+    var dx = xCenter+outerRad*Math.cos( deltaTheta*iDelta[ d['id'] ]  );
+    var dy = yCenter+outerRad*Math.sin( deltaTheta*iDelta[ d['id'] ]   );
+
+    if( dx - xCenter < 0) { var sens = 180; }
+    else { var sens = 0;  }
+
+    return "translate("+dx+", "+dy+") rotate("+ (sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) +") "
+}
+
+// reflechir  attribution Id/node > angle  ... + cluster 
+
+svg.selectAll(".link")
+    .data(links)
+  .enter().append("path")
+    .attr("class", "link")
+    .attr("d", function(d){ return linkCurve(d); } );
+
+   // .style("stroke", function(d) { return color(d.id); });
+
+
+
+function linkCurve(d){
+
+    var arc = radius*Math.abs( deltaTheta*(iDelta[d['s']]-iDelta[d['t']] ));
+    var innerRad = Math.max( 0.65*radius, radius-0.85*arc ); //*arc;
+
+    var startX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['s']]  ),
+        startY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['s']]  );
+
+    var startXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['s']]  ),
+        startYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['s']]  );
+
+    var endXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['t']]  ),
+        endYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['t']]  );
+
+    var endX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['t']]  ),
+        endY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['t']]  );
+
+    var to= "m "+startX+","+startY+" C"+startXmiddle+","+startYmiddle+" "+endXmiddle+","+endYmiddle+" "+endX+","+endY ;
+
+    return to;
+}
+
+
+    svg.selectAll(".node")
+        .data(nodes)
+      .enter().append("circle")
+        .attr("class", "node")
+        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("r", 3)  //radius
+        .style("fill", "#001" );//function(d) { return color(d.id); });
+
+});  // fin Jso
+
+</script>

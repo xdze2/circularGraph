@@ -1,0 +1,1464 @@
+{
+    "nodes": [
+        {
+            "gdeg": 50, 
+            "prox": 0.04759145259028624, 
+            "label": "absorber", 
+            "gid": 32, 
+            "lemme": "absorber", 
+            "prox_color": [
+                255, 
+                179, 
+                45
+            ], 
+            "id": 0
+        }, 
+        {
+            "gdeg": 97, 
+            "prox": 0.015170552075153021, 
+            "label": "apprendre", 
+            "gid": 371, 
+            "lemme": "apprendre", 
+            "prox_color": [
+                255, 
+                145, 
+                50
+            ], 
+            "id": 1
+        }, 
+        {
+            "gdeg": 38, 
+            "prox": 0.008080933361935572, 
+            "label": "avaler", 
+            "gid": 512, 
+            "lemme": "avaler", 
+            "prox_color": [
+                255, 
+                159, 
+                78
+            ], 
+            "id": 2
+        }, 
+        {
+            "gdeg": 13, 
+            "prox": 0.007614969330415005, 
+            "label": "becqueter", 
+            "gid": 769, 
+            "lemme": "becqueter", 
+            "prox_color": [
+                255, 
+                136, 
+                39
+            ], 
+            "id": 3
+        }, 
+        {
+            "gdeg": 75, 
+            "prox": 0.006944848406075442, 
+            "label": "boire", 
+            "gid": 837, 
+            "lemme": "boire", 
+            "prox_color": [
+                255, 
+                155, 
+                63
+            ], 
+            "id": 4
+        }, 
+        {
+            "gdeg": 31, 
+            "prox": 0.006650275537209658, 
+            "label": "bouffer", 
+            "gid": 878, 
+            "lemme": "bouffer", 
+            "prox_color": [
+                255, 
+                153, 
+                70
+            ], 
+            "id": 5
+        }, 
+        {
+            "gdeg": 8, 
+            "prox": 0.005965910584563172, 
+            "label": "boulotter", 
+            "gid": 893, 
+            "lemme": "boulotter", 
+            "prox_color": [
+                255, 
+                174, 
+                33
+            ], 
+            "id": 6
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.005958294698051958, 
+            "label": "boustifailler", 
+            "gid": 910, 
+            "lemme": "boustifailler", 
+            "prox_color": [
+                255, 
+                171, 
+                51
+            ], 
+            "id": 7
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.005936157478725468, 
+            "label": "brichetonner", 
+            "gid": 939, 
+            "lemme": "brichetonner", 
+            "prox_color": [
+                255, 
+                181, 
+                34
+            ], 
+            "id": 8
+        }, 
+        {
+            "gdeg": 10, 
+            "prox": 0.005768026212773593, 
+            "label": "briffer", 
+            "gid": 943, 
+            "lemme": "briffer", 
+            "prox_color": [
+                255, 
+                157, 
+                39
+            ], 
+            "id": 9
+        }, 
+        {
+            "gdeg": 15, 
+            "prox": 0.00554294576999914, 
+            "label": "b\u00e2frer", 
+            "gid": 1001, 
+            "lemme": "b\u00e2frer", 
+            "prox_color": [
+                255, 
+                179, 
+                60
+            ], 
+            "id": 10
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.005393394998280626, 
+            "label": "casser la cro\u00fbte", 
+            "gid": 1126, 
+            "lemme": "casser la cro\u00fbte", 
+            "prox_color": [
+                255, 
+                156, 
+                38
+            ], 
+            "id": 11
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.005384253099286609, 
+            "label": "casser la graine", 
+            "gid": 1128, 
+            "lemme": "casser la graine", 
+            "prox_color": [
+                255, 
+                181, 
+                39
+            ], 
+            "id": 12
+        }, 
+        {
+            "gdeg": 30, 
+            "prox": 0.00534181721494208, 
+            "label": "croquer", 
+            "gid": 1662, 
+            "lemme": "croquer", 
+            "prox_color": [
+                255, 
+                215, 
+                50
+            ], 
+            "id": 13
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.005239835379285317, 
+            "label": "croustiller", 
+            "gid": 1668, 
+            "lemme": "croustiller", 
+            "prox_color": [
+                255, 
+                219, 
+                39
+            ], 
+            "id": 14
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.005108068871829069, 
+            "label": "cro\u00fbter", 
+            "gid": 1670, 
+            "lemme": "cro\u00fbter", 
+            "prox_color": [
+                255, 
+                187, 
+                44
+            ], 
+            "id": 15
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.005098666802342755, 
+            "label": "d\u00e9jeuner", 
+            "gid": 2169, 
+            "lemme": "d\u00e9jeuner", 
+            "prox_color": [
+                255, 
+                176, 
+                55
+            ], 
+            "id": 16
+        }, 
+        {
+            "gdeg": 38, 
+            "prox": 0.00509465735440281, 
+            "label": "d\u00e9penser", 
+            "gid": 2268, 
+            "lemme": "d\u00e9penser", 
+            "prox_color": [
+                255, 
+                220, 
+                50
+            ], 
+            "id": 17
+        }, 
+        {
+            "gdeg": 50, 
+            "prox": 0.005075634169791699, 
+            "label": "d\u00e9vorer", 
+            "gid": 2480, 
+            "lemme": "d\u00e9vorer", 
+            "prox_color": [
+                255, 
+                173, 
+                47
+            ], 
+            "id": 18
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.00499705115608425, 
+            "label": "d\u00eener", 
+            "gid": 2486, 
+            "lemme": "d\u00eener", 
+            "prox_color": [
+                255, 
+                180, 
+                53
+            ], 
+            "id": 19
+        }, 
+        {
+            "gdeg": 33, 
+            "prox": 0.0048742421890601365, 
+            "label": "engloutir", 
+            "gid": 2724, 
+            "lemme": "engloutir", 
+            "prox_color": [
+                255, 
+                224, 
+                67
+            ], 
+            "id": 20
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.004840717242728665, 
+            "label": "faire bonne ch\u00e8re", 
+            "gid": 2977, 
+            "lemme": "faire bonne ch\u00e8re", 
+            "prox_color": [
+                255, 
+                184, 
+                51
+            ], 
+            "id": 21
+        }, 
+        {
+            "gdeg": 12, 
+            "prox": 0.004796773147706646, 
+            "label": "festoyer", 
+            "gid": 3226, 
+            "lemme": "festoyer", 
+            "prox_color": [
+                255, 
+                143, 
+                52
+            ], 
+            "id": 22
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.004679998778736747, 
+            "label": "gobichonner", 
+            "gid": 3493, 
+            "lemme": "gobichonner", 
+            "prox_color": [
+                255, 
+                179, 
+                112
+            ], 
+            "id": 23
+        }, 
+        {
+            "gdeg": 8, 
+            "prox": 0.004392387887055575, 
+            "label": "goinfrer", 
+            "gid": 3499, 
+            "lemme": "goinfrer", 
+            "prox_color": [
+                255, 
+                176, 
+                127
+            ], 
+            "id": 24
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.004380573778234077, 
+            "label": "grailler", 
+            "gid": 3522, 
+            "lemme": "grailler", 
+            "prox_color": [
+                255, 
+                184, 
+                55
+            ], 
+            "id": 25
+        }, 
+        {
+            "gdeg": 22, 
+            "prox": 0.004347321037813793, 
+            "label": "ingurgiter", 
+            "gid": 3785, 
+            "lemme": "ingurgiter", 
+            "prox_color": [
+                255, 
+                184, 
+                59
+            ], 
+            "id": 26
+        }, 
+        {
+            "gdeg": 104, 
+            "prox": 0.004259297246750929, 
+            "label": "manger", 
+            "gid": 4095, 
+            "lemme": "manger", 
+            "prox_color": [
+                255, 
+                191, 
+                55
+            ], 
+            "id": 27
+        }, 
+        {
+            "gdeg": 8, 
+            "prox": 0.004253224708449615, 
+            "label": "pa\u00eetre", 
+            "gid": 4732, 
+            "lemme": "pa\u00eetre", 
+            "prox_color": [
+                255, 
+                97, 
+                45
+            ], 
+            "id": 28
+        }, 
+        {
+            "gdeg": 210, 
+            "prox": 0.004240412149998311, 
+            "label": "prendre", 
+            "gid": 4962, 
+            "lemme": "prendre", 
+            "prox_color": [
+                255, 
+                145, 
+                54
+            ], 
+            "id": 29
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.004236503933477653, 
+            "label": "ripailler", 
+            "gid": 5668, 
+            "lemme": "ripailler", 
+            "prox_color": [
+                255, 
+                148, 
+                49
+            ], 
+            "id": 30
+        }, 
+        {
+            "gdeg": 39, 
+            "prox": 0.004227980927228528, 
+            "label": "s'abreuver", 
+            "gid": 5881, 
+            "lemme": "s'abreuver", 
+            "prox_color": [
+                255, 
+                166, 
+                61
+            ], 
+            "id": 31
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.0042256751572393395, 
+            "label": "s'alimenter", 
+            "gid": 5972, 
+            "lemme": "s'alimenter", 
+            "prox_color": [
+                255, 
+                145, 
+                67
+            ], 
+            "id": 32
+        }, 
+        {
+            "gdeg": 12, 
+            "prox": 0.004183957615521799, 
+            "label": "s'empiffrer", 
+            "gid": 6134, 
+            "lemme": "s'empiffrer", 
+            "prox_color": [
+                255, 
+                174, 
+                61
+            ], 
+            "id": 33
+        }, 
+        {
+            "gdeg": 9, 
+            "prox": 0.004177111287246899, 
+            "label": "se bourrer", 
+            "gid": 6635, 
+            "lemme": "se bourrer", 
+            "prox_color": [
+                255, 
+                165, 
+                64
+            ], 
+            "id": 34
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.004150921397206931, 
+            "label": "se caler les joues", 
+            "gid": 6660, 
+            "lemme": "se caler les joues", 
+            "prox_color": [
+                255, 
+                180, 
+                53
+            ], 
+            "id": 35
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.003997511368159233, 
+            "label": "se d\u00e9car\u00eamer", 
+            "gid": 6880, 
+            "lemme": "se d\u00e9car\u00eamer", 
+            "prox_color": [
+                255, 
+                199, 
+                127
+            ], 
+            "id": 36
+        }, 
+        {
+            "gdeg": 9, 
+            "prox": 0.003996545789380752, 
+            "label": "se gaver", 
+            "gid": 7152, 
+            "lemme": "se gaver", 
+            "prox_color": [
+                255, 
+                168, 
+                52
+            ], 
+            "id": 37
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.003983429693469369, 
+            "label": "se goinfrer", 
+            "gid": 7159, 
+            "lemme": "se goinfrer", 
+            "prox_color": [
+                255, 
+                181, 
+                67
+            ], 
+            "id": 38
+        }, 
+        {
+            "gdeg": 9, 
+            "prox": 0.003977871261904357, 
+            "label": "se gorger", 
+            "gid": 7163, 
+            "lemme": "se gorger", 
+            "prox_color": [
+                255, 
+                168, 
+                51
+            ], 
+            "id": 39
+        }, 
+        {
+            "gdeg": 2, 
+            "prox": 0.003959135431791128, 
+            "label": "se les caler", 
+            "gid": 7204, 
+            "lemme": "se les caler", 
+            "prox_color": [
+                255, 
+                197, 
+                44
+            ], 
+            "id": 40
+        }, 
+        {
+            "gdeg": 9, 
+            "prox": 0.003953093360606786, 
+            "label": "se nourrir", 
+            "gid": 7318, 
+            "lemme": "se nourrir", 
+            "prox_color": [
+                255, 
+                157, 
+                59
+            ], 
+            "id": 41
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.003946954532522692, 
+            "label": "se piffrer", 
+            "gid": 7357, 
+            "lemme": "se piffrer", 
+            "prox_color": [
+                255, 
+                191, 
+                44
+            ], 
+            "id": 42
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.0038395637234185, 
+            "label": "se rassasier", 
+            "gid": 7481, 
+            "lemme": "se rassasier", 
+            "prox_color": [
+                255, 
+                177, 
+                56
+            ], 
+            "id": 43
+        }, 
+        {
+            "gdeg": 11, 
+            "prox": 0.0036736593338245016, 
+            "label": "se remplir", 
+            "gid": 7536, 
+            "lemme": "se remplir", 
+            "prox_color": [
+                255, 
+                176, 
+                96
+            ], 
+            "id": 44
+        }, 
+        {
+            "gdeg": 11, 
+            "prox": 0.0036340225902425417, 
+            "label": "se repa\u00eetre", 
+            "gid": 7556, 
+            "lemme": "se repa\u00eetre", 
+            "prox_color": [
+                255, 
+                161, 
+                75
+            ], 
+            "id": 45
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.003582797712413843, 
+            "label": "se restaurer", 
+            "gid": 7573, 
+            "lemme": "se restaurer", 
+            "prox_color": [
+                255, 
+                121, 
+                44
+            ], 
+            "id": 46
+        }, 
+        {
+            "gdeg": 12, 
+            "prox": 0.0035116599246474466, 
+            "label": "se r\u00e9galer", 
+            "gid": 7615, 
+            "lemme": "se r\u00e9galer", 
+            "prox_color": [
+                255, 
+                162, 
+                112
+            ], 
+            "id": 47
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.003479958721318954, 
+            "label": "se sustenter", 
+            "gid": 7704, 
+            "lemme": "se sustenter", 
+            "prox_color": [
+                255, 
+                157, 
+                49
+            ], 
+            "id": 48
+        }, 
+        {
+            "gdeg": 2, 
+            "prox": 0.003476108771372057, 
+            "label": "souper", 
+            "gid": 7904, 
+            "lemme": "souper", 
+            "prox_color": [
+                255, 
+                197, 
+                43
+            ], 
+            "id": 49
+        }
+    ], 
+    "nNodes": 57, 
+    "links": [
+        {
+            "s": 0, 
+            "t": 1, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 2, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 4, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "t": 31, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 2, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 31, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 37, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 4, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 5, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 6, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 10, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "t": 5, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "t": 6, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "t": 11, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "t": 31, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 6, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 7, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 10, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 13, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 15, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 16, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 19, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 24, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 25, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "t": 35, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "t": 13, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 7, 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 7, 
+            "t": 10, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 7, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 7, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 8, 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 8, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 9, 
+            "t": 10, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 9, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 10, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 10, 
+            "t": 24, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 10, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 10, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 10, 
+            "t": 38, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "t": 12, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "t": 15, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 12, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "t": 14, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 14, 
+            "t": 15, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 14, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 15, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "t": 19, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 17, 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 17, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 17, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 19, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 19, 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 20, 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 20, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "t": 22, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "t": 36, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "t": 23, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "t": 30, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "t": 47, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 23, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 25, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "t": 37, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 28, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 30, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 32, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 35, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 36, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 37, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 38, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 40, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 47, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 31, 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 31, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 32, 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 32, 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "t": 38, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 34, 
+            "t": 37, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 34, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 35, 
+            "t": 40, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 38, 
+            "t": 39, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 39, 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 39, 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 41, 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 41, 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 41, 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 43, 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 46, 
+            "t": 48, 
+            "weight": 1.0
+        }
+    ], 
+    "iDelta": {
+        "0": 0, 
+        "1": 1, 
+        "2": 2, 
+        "3": 12, 
+        "4": 3, 
+        "5": 13, 
+        "6": 14, 
+        "7": 15, 
+        "8": 16, 
+        "9": 17, 
+        "10": 18, 
+        "11": 27, 
+        "12": 28, 
+        "13": 4, 
+        "14": 29, 
+        "15": 30, 
+        "16": 32, 
+        "17": 5, 
+        "18": 6, 
+        "19": 33, 
+        "20": 7, 
+        "21": 36, 
+        "22": 37, 
+        "23": 38, 
+        "24": 19, 
+        "25": 20, 
+        "26": 8, 
+        "27": 21, 
+        "28": 22, 
+        "29": 9, 
+        "30": 39, 
+        "31": 10, 
+        "32": 43, 
+        "33": 23, 
+        "34": 48, 
+        "35": 55, 
+        "36": 40, 
+        "37": 49, 
+        "38": 24, 
+        "39": 50, 
+        "40": 56, 
+        "41": 44, 
+        "42": 25, 
+        "43": 51, 
+        "44": 52, 
+        "45": 53, 
+        "46": 45, 
+        "47": 41, 
+        "48": 46, 
+        "49": 34
+    }
+}
