@@ -10,7 +10,7 @@
             "s": 0, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 1, 
@@ -28,7 +28,7 @@
             "s": 1, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 2, 
@@ -64,7 +64,7 @@
             "s": 3, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 3, 
@@ -112,7 +112,7 @@
             "s": 4, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 4, 
@@ -142,7 +142,7 @@
             "s": 5, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 6, 
@@ -166,7 +166,7 @@
             "s": 6, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 7, 
@@ -178,7 +178,7 @@
             "s": 7, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 8, 
@@ -202,7 +202,7 @@
             "s": 8, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 9, 
@@ -214,7 +214,7 @@
             "s": 9, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 10, 
@@ -274,7 +274,7 @@
             "s": 12, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 13, 
@@ -286,7 +286,7 @@
             "s": 13, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 14, 
@@ -298,13 +298,13 @@
             "s": 14, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 15, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 15, 
@@ -340,7 +340,7 @@
             "s": 16, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 16, 
@@ -358,7 +358,7 @@
             "s": 17, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 17, 
@@ -376,7 +376,7 @@
             "s": 18, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 19, 
@@ -394,7 +394,7 @@
             "s": 19, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 19, 
@@ -418,7 +418,7 @@
             "s": 21, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 21, 
@@ -442,7 +442,7 @@
             "s": 22, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 22, 
@@ -478,7 +478,7 @@
             "s": 23, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 24, 
@@ -502,13 +502,13 @@
             "s": 24, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 25, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 25, 
@@ -526,7 +526,7 @@
             "s": 26, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 27, 
@@ -538,7 +538,7 @@
             "s": 27, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 27, 
@@ -556,7 +556,7 @@
             "s": 28, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 29, 
@@ -568,13 +568,13 @@
             "s": 29, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 30, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 30, 
@@ -586,13 +586,13 @@
             "s": 31, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 32, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 32, 
@@ -616,7 +616,7 @@
             "s": 33, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 33, 
@@ -628,7 +628,7 @@
             "s": 34, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 34, 
@@ -646,7 +646,7 @@
             "s": 35, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 35, 
@@ -658,7 +658,7 @@
             "s": 36, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 36, 
@@ -670,7 +670,7 @@
             "s": 37, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 37, 
@@ -694,7 +694,7 @@
             "s": 38, 
             "type": "query", 
             "t": 39, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 38, 
@@ -724,55 +724,55 @@
             "s": 39, 
             "type": "query", 
             "t": 40, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 41, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 42, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 43, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 44, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 45, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 46, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 47, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 39, 
             "type": "query", 
             "t": 49, 
-            "weight": 0.1
+            "weight": 1.0
         }, 
         {
             "s": 40, 
