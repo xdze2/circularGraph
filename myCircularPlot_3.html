@@ -53,12 +53,14 @@ var svg = d3.select("body").append("svg")
         .append("g");
         //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
 
+/* -- start JSON -- */
 //myData_tourner.json  myData_manger.json   myData_rouler.jso
 d3.json("myData_tourner.json", function(error, myData) {
     var nodes = myData['nodes'],
         links = myData['links'],
         iDelta = myData['iDelta'],
         nNodes = myData['nNodes'];
+    
     console.log( iDelta )
  
     //console.log( nodes[1]['id'] )
@@ -68,7 +70,7 @@ d3.json("myData_tourner.json", function(error, myData) {
 
     var deltaTheta = -Math.PI/(nNodes-1);  // en radian
 
-
+/* -- Labels -- */
     svg.selectAll("nodesLabel")
         .data(nodes)
       .enter().append("text")
@@ -94,7 +96,7 @@ function translateLabel(d){
     return "translate("+dx+", "+dy+") rotate("+ (sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) +") "
 }
 
-
+/* -- Liens -- */
 svg.selectAll(".link")
     .data(links)
   .enter().append("path")
@@ -108,8 +110,8 @@ svg.selectAll(".link")
    // .style("stroke", function(d) { return color(d.id); });
 
 
-
 function linkCurve(d){
+     // liens en coube de bezier 
 
     var arc = radius*Math.abs( deltaTheta*(iDelta[d['s']]-iDelta[d['t']] ));
     var innerRad = Math.max( 0.65*radius, radius-0.85*arc ); //*arc;
@@ -131,9 +133,8 @@ function linkCurve(d){
     return path;
 }
 function linkArc(d){
+    // liens en arc de cercle 
     var R = radius - 3;
-    //var arc = radius*Math.abs( deltaTheta*(iDelta[d['s']]-iDelta[d['t']] ));
-    //var innerRad = Math.max( 0.65*radius, radius-0.85*arc ); //*arc;
 
     var startX = xCenter+R*Math.cos( deltaTheta*iDelta[d['s']]  ),
         startY = yCenter+R*Math.sin( deltaTheta*iDelta[d['s']]  );
@@ -146,9 +147,10 @@ function linkArc(d){
 
     var r = Math.tan( phi/2 )*R;
     
-  
+    // gestion de l'orientation de l'arc (flag) :
     if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 1;   }
     else { var flag = 0; }
+
     var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
 
     return path;
@@ -161,9 +163,9 @@ function linkArc(d){
         .attr("class", "node")
         .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("r", 3)  //radius
-        .style("fill", "#001" );//function(d) { return color(d.id); });
+        .attr("r", 3);  //radius
+        .style("fill", "#001" ); //function(d) { return color(d.id); });
 
-});  // fin Jso
+});  // <-- fin lecture Json
 
 </script>
