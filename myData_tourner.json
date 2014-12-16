@@ -1,0 +1,1608 @@
+{
+    "links": [
+        {
+            "s": 0, 
+            "type": "intra", 
+            "t": 4, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 0, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 1, 
+            "type": "intra", 
+            "t": 24, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "type": "intra", 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 1, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 2, 
+            "type": "intra", 
+            "t": 13, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "type": "intra", 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "type": "intra", 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 2, 
+            "type": "inter", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "type": "intra", 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 3, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 3, 
+            "type": "inter", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 7, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "inter", 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 19, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 24, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 30, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "inter", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 4, 
+            "type": "intra", 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "type": "intra", 
+            "t": 6, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 5, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 6, 
+            "type": "intra", 
+            "t": 10, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "type": "intra", 
+            "t": 12, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "type": "intra", 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 6, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 7, 
+            "type": "intra", 
+            "t": 30, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 7, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 8, 
+            "type": "intra", 
+            "t": 9, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 8, 
+            "type": "intra", 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 8, 
+            "type": "intra", 
+            "t": 33, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 8, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 9, 
+            "type": "intra", 
+            "t": 17, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 9, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 10, 
+            "type": "intra", 
+            "t": 12, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "inter", 
+            "t": 16, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "inter", 
+            "t": 19, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "inter", 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "intra", 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "intra", 
+            "t": 38, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "intra", 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 11, 
+            "type": "inter", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 12, 
+            "type": "intra", 
+            "t": 20, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 12, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 13, 
+            "type": "intra", 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 13, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 14, 
+            "type": "intra", 
+            "t": 22, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 14, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 15, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 15, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "type": "intra", 
+            "t": 18, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "type": "intra", 
+            "t": 19, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "type": "intra", 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "type": "inter", 
+            "t": 27, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 16, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 16, 
+            "type": "intra", 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 17, 
+            "type": "inter", 
+            "t": 22, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 17, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 17, 
+            "type": "inter", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "type": "intra", 
+            "t": 25, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 18, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 19, 
+            "type": "inter", 
+            "t": 23, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 19, 
+            "type": "intra", 
+            "t": 30, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 19, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 19, 
+            "type": "inter", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 19, 
+            "type": "intra", 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "type": "intra", 
+            "t": 22, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 21, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 21, 
+            "type": "intra", 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 22, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "type": "intra", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 22, 
+            "type": "intra", 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 23, 
+            "type": "intra", 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 23, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 24, 
+            "type": "intra", 
+            "t": 25, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "type": "intra", 
+            "t": 26, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "type": "inter", 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 24, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 25, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 25, 
+            "type": "intra", 
+            "t": 44, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "type": "inter", 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 26, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 27, 
+            "type": "intra", 
+            "t": 38, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 27, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 27, 
+            "type": "inter", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 28, 
+            "type": "intra", 
+            "t": 29, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 28, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 29, 
+            "type": "intra", 
+            "t": 31, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 29, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 30, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 30, 
+            "type": "intra", 
+            "t": 49, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 31, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 32, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 32, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 32, 
+            "type": "intra", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "type": "intra", 
+            "t": 34, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 33, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 33, 
+            "type": "inter", 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 34, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 34, 
+            "type": "inter", 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 35, 
+            "type": "intra", 
+            "t": 36, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 35, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 35, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 36, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 36, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 37, 
+            "type": "intra", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "type": "intra", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 37, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 38, 
+            "type": "query", 
+            "t": 39, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 38, 
+            "type": "intra", 
+            "t": 40, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 38, 
+            "type": "intra", 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 38, 
+            "type": "intra", 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 38, 
+            "type": "inter", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 40, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 41, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 42, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 43, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 44, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 45, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 46, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 47, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 39, 
+            "type": "query", 
+            "t": 49, 
+            "weight": 0.1
+        }, 
+        {
+            "s": 40, 
+            "type": "intra", 
+            "t": 41, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 40, 
+            "type": "intra", 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 41, 
+            "type": "intra", 
+            "t": 42, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 42, 
+            "type": "inter", 
+            "t": 43, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 43, 
+            "type": "intra", 
+            "t": 45, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 43, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 45, 
+            "type": "intra", 
+            "t": 46, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 46, 
+            "type": "intra", 
+            "t": 47, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 46, 
+            "type": "intra", 
+            "t": 48, 
+            "weight": 1.0
+        }, 
+        {
+            "s": 46, 
+            "type": "inter", 
+            "t": 49, 
+            "weight": 1.0
+        }
+    ], 
+    "clusters_id": {
+        "0": 0, 
+        "1": 0, 
+        "2": 1, 
+        "3": 1, 
+        "4": 0, 
+        "5": 2, 
+        "6": 2, 
+        "7": 0, 
+        "8": 1, 
+        "9": 1, 
+        "10": 2, 
+        "11": 3, 
+        "12": 2, 
+        "13": 1, 
+        "14": 4, 
+        "15": 4, 
+        "16": 0, 
+        "17": 1, 
+        "18": 0, 
+        "19": 0, 
+        "20": 2, 
+        "21": 4, 
+        "22": 4, 
+        "23": 5, 
+        "24": 0, 
+        "25": 0, 
+        "26": 0, 
+        "27": 3, 
+        "28": 5, 
+        "29": 5, 
+        "30": 0, 
+        "31": 5, 
+        "32": 4, 
+        "33": 1, 
+        "34": 1, 
+        "35": 4, 
+        "36": 4, 
+        "37": 4, 
+        "38": 3, 
+        "39": 0, 
+        "40": 3, 
+        "41": 3, 
+        "42": 3, 
+        "43": 4, 
+        "44": 0, 
+        "45": 4, 
+        "46": 4, 
+        "47": 4, 
+        "48": 4, 
+        "49": 0
+    }, 
+    "iDelta": {
+        "0": 0, 
+        "1": 1, 
+        "2": 15, 
+        "3": 16, 
+        "4": 2, 
+        "5": 24, 
+        "6": 25, 
+        "7": 3, 
+        "8": 17, 
+        "9": 18, 
+        "10": 26, 
+        "11": 30, 
+        "12": 27, 
+        "13": 19, 
+        "14": 37, 
+        "15": 38, 
+        "16": 4, 
+        "17": 20, 
+        "18": 5, 
+        "19": 6, 
+        "20": 28, 
+        "21": 39, 
+        "22": 40, 
+        "23": 51, 
+        "24": 7, 
+        "25": 8, 
+        "26": 9, 
+        "27": 31, 
+        "28": 52, 
+        "29": 53, 
+        "30": 10, 
+        "31": 54, 
+        "32": 41, 
+        "33": 21, 
+        "34": 22, 
+        "35": 42, 
+        "36": 43, 
+        "37": 44, 
+        "38": 32, 
+        "39": 11, 
+        "40": 33, 
+        "41": 34, 
+        "42": 35, 
+        "43": 45, 
+        "44": 12, 
+        "45": 46, 
+        "46": 47, 
+        "47": 48, 
+        "48": 49, 
+        "49": 13
+    }, 
+    "nNodes": 55, 
+    "query": {
+        "gdeg": 95, 
+        "prox": 0.0027764242644927935, 
+        "label": "tourner", 
+        "gid": 8243, 
+        "lemme": "tourner", 
+        "prox_color": [
+            255, 
+            161, 
+            178
+        ], 
+        "id": 39
+    }, 
+    "nodes": [
+        {
+            "gdeg": 9, 
+            "prox": 0.026649797307577782, 
+            "label": "alterner", 
+            "gid": 277, 
+            "lemme": "alterner", 
+            "prox_color": [
+                255, 
+                166, 
+                197
+            ], 
+            "id": 0
+        }, 
+        {
+            "gdeg": 182, 
+            "prox": 0.011226752133268658, 
+            "label": "battre", 
+            "gid": 742, 
+            "lemme": "battre", 
+            "prox_color": [
+                255, 
+                210, 
+                37
+            ], 
+            "id": 1
+        }, 
+        {
+            "gdeg": 14, 
+            "prox": 0.008054120001808576, 
+            "label": "biaiser", 
+            "gid": 776, 
+            "lemme": "biaiser", 
+            "prox_color": [
+                255, 
+                178, 
+                209
+            ], 
+            "id": 2
+        }, 
+        {
+            "gdeg": 17, 
+            "prox": 0.007295460444509922, 
+            "label": "braquer", 
+            "gid": 930, 
+            "lemme": "braquer", 
+            "prox_color": [
+                255, 
+                112, 
+                63
+            ], 
+            "id": 3
+        }, 
+        {
+            "gdeg": 100, 
+            "prox": 0.006003284064801809, 
+            "label": "changer", 
+            "gid": 1188, 
+            "lemme": "changer", 
+            "prox_color": [
+                255, 
+                196, 
+                185
+            ], 
+            "id": 4
+        }, 
+        {
+            "gdeg": 2, 
+            "prox": 0.005901950831149497, 
+            "label": "cin\u00e9graphier", 
+            "gid": 1284, 
+            "lemme": "cin\u00e9graphier", 
+            "prox_color": [
+                255, 
+                146, 
+                205
+            ], 
+            "id": 5
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.0055993232718997655, 
+            "label": "cin\u00e9matographier", 
+            "gid": 1285, 
+            "lemme": "cin\u00e9matographier", 
+            "prox_color": [
+                255, 
+                145, 
+                125
+            ], 
+            "id": 6
+        }, 
+        {
+            "gdeg": 29, 
+            "prox": 0.005443105734695634, 
+            "label": "d\u00e9g\u00e9n\u00e9rer", 
+            "gid": 2164, 
+            "lemme": "d\u00e9g\u00e9n\u00e9rer", 
+            "prox_color": [
+                255, 
+                239, 
+                208
+            ], 
+            "id": 7
+        }, 
+        {
+            "gdeg": 57, 
+            "prox": 0.005356282743033012, 
+            "label": "d\u00e9tourner", 
+            "gid": 2453, 
+            "lemme": "d\u00e9tourner", 
+            "prox_color": [
+                255, 
+                199, 
+                193
+            ], 
+            "id": 8
+        }, 
+        {
+            "gdeg": 28, 
+            "prox": 0.00520804942145106, 
+            "label": "d\u00e9vier", 
+            "gid": 2473, 
+            "lemme": "d\u00e9vier", 
+            "prox_color": [
+                164, 
+                144, 
+                255
+            ], 
+            "id": 9
+        }, 
+        {
+            "gdeg": 29, 
+            "prox": 0.005207162954986811, 
+            "label": "enregistrer", 
+            "gid": 2763, 
+            "lemme": "enregistrer", 
+            "prox_color": [
+                255, 
+                149, 
+                28
+            ], 
+            "id": 10
+        }, 
+        {
+            "gdeg": 40, 
+            "prox": 0.005068711810982852, 
+            "label": "errer", 
+            "gid": 2841, 
+            "lemme": "errer", 
+            "prox_color": [
+                197, 
+                135, 
+                255
+            ], 
+            "id": 11
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.004979580594583956, 
+            "label": "filmer", 
+            "gid": 3250, 
+            "lemme": "filmer", 
+            "prox_color": [
+                255, 
+                146, 
+                108
+            ], 
+            "id": 12
+        }, 
+        {
+            "gdeg": 8, 
+            "prox": 0.004554718829335128, 
+            "label": "finasser", 
+            "gid": 3255, 
+            "lemme": "finasser", 
+            "prox_color": [
+                171, 
+                118, 
+                255
+            ], 
+            "id": 13
+        }, 
+        {
+            "gdeg": 2, 
+            "prox": 0.004481191914632327, 
+            "label": "girer", 
+            "gid": 3470, 
+            "lemme": "girer", 
+            "prox_color": [
+                255, 
+                148, 
+                176
+            ], 
+            "id": 14
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.004481191914632327, 
+            "label": "graviter", 
+            "gid": 3539, 
+            "lemme": "graviter", 
+            "prox_color": [
+                255, 
+                155, 
+                185
+            ], 
+            "id": 15
+        }, 
+        {
+            "gdeg": 65, 
+            "prox": 0.004087552027658362, 
+            "label": "marcher", 
+            "gid": 4116, 
+            "lemme": "marcher", 
+            "prox_color": [
+                255, 
+                160, 
+                236
+            ], 
+            "id": 16
+        }, 
+        {
+            "gdeg": 12, 
+            "prox": 0.003827043179307173, 
+            "label": "obliquer", 
+            "gid": 4543, 
+            "lemme": "obliquer", 
+            "prox_color": [
+                255, 
+                172, 
+                195
+            ], 
+            "id": 17
+        }, 
+        {
+            "gdeg": 121, 
+            "prox": 0.0037737592516962366, 
+            "label": "partir", 
+            "gid": 4682, 
+            "lemme": "partir", 
+            "prox_color": [
+                77, 
+                72, 
+                255
+            ], 
+            "id": 18
+        }, 
+        {
+            "gdeg": 188, 
+            "prox": 0.0037315570681960616, 
+            "label": "passer", 
+            "gid": 4687, 
+            "lemme": "passer", 
+            "prox_color": [
+                245, 
+                173, 
+                255
+            ], 
+            "id": 19
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.0036704916256926857, 
+            "label": "photographier", 
+            "gid": 4794, 
+            "lemme": "photographier", 
+            "prox_color": [
+                255, 
+                141, 
+                75
+            ], 
+            "id": 20
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.003520062842256957, 
+            "label": "pirouetter", 
+            "gid": 4831, 
+            "lemme": "pirouetter", 
+            "prox_color": [
+                255, 
+                155, 
+                183
+            ], 
+            "id": 21
+        }, 
+        {
+            "gdeg": 9, 
+            "prox": 0.003372662447311591, 
+            "label": "pivoter", 
+            "gid": 4839, 
+            "lemme": "pivoter", 
+            "prox_color": [
+                255, 
+                162, 
+                144
+            ], 
+            "id": 22
+        }, 
+        {
+            "gdeg": 44, 
+            "prox": 0.0033574061355577237, 
+            "label": "pourrir", 
+            "gid": 4952, 
+            "lemme": "pourrir", 
+            "prox_color": [
+                255, 
+                238, 
+                106
+            ], 
+            "id": 23
+        }, 
+        {
+            "gdeg": 102, 
+            "prox": 0.003212401584009384, 
+            "label": "remuer", 
+            "gid": 5473, 
+            "lemme": "remuer", 
+            "prox_color": [
+                255, 
+                148, 
+                78
+            ], 
+            "id": 24
+        }, 
+        {
+            "gdeg": 61, 
+            "prox": 0.0032070155687438794, 
+            "label": "retourner", 
+            "gid": 5617, 
+            "lemme": "retourner", 
+            "prox_color": [
+                255, 
+                180, 
+                136
+            ], 
+            "id": 25
+        }, 
+        {
+            "gdeg": 88, 
+            "prox": 0.003199338013804345, 
+            "label": "rouler", 
+            "gid": 5704, 
+            "lemme": "rouler", 
+            "prox_color": [
+                255, 
+                159, 
+                106
+            ], 
+            "id": 26
+        }, 
+        {
+            "gdeg": 24, 
+            "prox": 0.00317736815689799, 
+            "label": "r\u00f4der", 
+            "gid": 5870, 
+            "lemme": "r\u00f4der", 
+            "prox_color": [
+                176, 
+                113, 
+                255
+            ], 
+            "id": 27
+        }, 
+        {
+            "gdeg": 10, 
+            "prox": 0.003167725112505553, 
+            "label": "s'aigrir", 
+            "gid": 5965, 
+            "lemme": "s'aigrir", 
+            "prox_color": [
+                255, 
+                123, 
+                128
+            ], 
+            "id": 28
+        }, 
+        {
+            "gdeg": 22, 
+            "prox": 0.003164812424643719, 
+            "label": "se g\u00e2ter", 
+            "gid": 7176, 
+            "lemme": "se g\u00e2ter", 
+            "prox_color": [
+                255, 
+                217, 
+                235
+            ], 
+            "id": 29
+        }, 
+        {
+            "gdeg": 23, 
+            "prox": 0.0030992969578180905, 
+            "label": "se transformer", 
+            "gid": 7751, 
+            "lemme": "se transformer", 
+            "prox_color": [
+                255, 
+                167, 
+                148
+            ], 
+            "id": 30
+        }, 
+        {
+            "gdeg": 17, 
+            "prox": 0.003058425622583077, 
+            "label": "se troubler", 
+            "gid": 7763, 
+            "lemme": "se troubler", 
+            "prox_color": [
+                255, 
+                227, 
+                182
+            ], 
+            "id": 31
+        }, 
+        {
+            "gdeg": 13, 
+            "prox": 0.003013889491684001, 
+            "label": "serpenter", 
+            "gid": 7819, 
+            "lemme": "serpenter", 
+            "prox_color": [
+                207, 
+                153, 
+                255
+            ], 
+            "id": 32
+        }, 
+        {
+            "gdeg": 35, 
+            "prox": 0.0029905811783876, 
+            "label": "tordre", 
+            "gid": 8221, 
+            "lemme": "tordre", 
+            "prox_color": [
+                255, 
+                212, 
+                97
+            ], 
+            "id": 33
+        }, 
+        {
+            "gdeg": 23, 
+            "prox": 0.0029706021517487934, 
+            "label": "tortiller", 
+            "gid": 8225, 
+            "lemme": "tortiller", 
+            "prox_color": [
+                255, 
+                149, 
+                88
+            ], 
+            "id": 34
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.002881959027181669, 
+            "label": "toupiller", 
+            "gid": 8237, 
+            "lemme": "toupiller", 
+            "prox_color": [
+                255, 
+                153, 
+                253
+            ], 
+            "id": 35
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.002837309067889651, 
+            "label": "toupiner", 
+            "gid": 8238, 
+            "lemme": "toupiner", 
+            "prox_color": [
+                255, 
+                153, 
+                253
+            ], 
+            "id": 36
+        }, 
+        {
+            "gdeg": 5, 
+            "prox": 0.002812791961938163, 
+            "label": "tourbillonner", 
+            "gid": 8239, 
+            "lemme": "tourbillonner", 
+            "prox_color": [
+                255, 
+                188, 
+                200
+            ], 
+            "id": 37
+        }, 
+        {
+            "gdeg": 7, 
+            "prox": 0.0028016796926775603, 
+            "label": "tournailler", 
+            "gid": 8241, 
+            "lemme": "tournailler", 
+            "prox_color": [
+                232, 
+                145, 
+                255
+            ], 
+            "id": 38
+        }, 
+        {
+            "gdeg": 95, 
+            "prox": 0.0027764242644927935, 
+            "label": "tourner", 
+            "gid": 8243, 
+            "lemme": "tourner", 
+            "prox_color": [
+                255, 
+                161, 
+                178
+            ], 
+            "id": 39
+        }, 
+        {
+            "gdeg": 4, 
+            "prox": 0.002446863260474199, 
+            "label": "tournicoter", 
+            "gid": 8255, 
+            "lemme": "tournicoter", 
+            "prox_color": [
+                255, 
+                154, 
+                236
+            ], 
+            "id": 40
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.0024075151098405033, 
+            "label": "tourniller", 
+            "gid": 8256, 
+            "lemme": "tourniller", 
+            "prox_color": [
+                255, 
+                169, 
+                165
+            ], 
+            "id": 41
+        }, 
+        {
+            "gdeg": 6, 
+            "prox": 0.002405672310043493, 
+            "label": "tourniquer", 
+            "gid": 8257, 
+            "lemme": "tourniquer", 
+            "prox_color": [
+                249, 
+                155, 
+                255
+            ], 
+            "id": 42
+        }, 
+        {
+            "gdeg": 18, 
+            "prox": 0.0024005469180271724, 
+            "label": "tournoyer", 
+            "gid": 8258, 
+            "lemme": "tournoyer", 
+            "prox_color": [
+                255, 
+                172, 
+                234
+            ], 
+            "id": 43
+        }, 
+        {
+            "gdeg": 54, 
+            "prox": 0.002388457010656091, 
+            "label": "transformer", 
+            "gid": 8283, 
+            "lemme": "transformer", 
+            "prox_color": [
+                255, 
+                167, 
+                57
+            ], 
+            "id": 44
+        }, 
+        {
+            "gdeg": 23, 
+            "prox": 0.0023668148786136684, 
+            "label": "virer", 
+            "gid": 8497, 
+            "lemme": "virer", 
+            "prox_color": [
+                255, 
+                224, 
+                124
+            ], 
+            "id": 45
+        }, 
+        {
+            "gdeg": 11, 
+            "prox": 0.0022894466746607406, 
+            "label": "virevolter", 
+            "gid": 8498, 
+            "lemme": "virevolter", 
+            "prox_color": [
+                255, 
+                172, 
+                186
+            ], 
+            "id": 46
+        }, 
+        {
+            "gdeg": 2, 
+            "prox": 0.0022749750276492686, 
+            "label": "virevousser", 
+            "gid": 8499, 
+            "lemme": "virevousser", 
+            "prox_color": [
+                255, 
+                155, 
+                215
+            ], 
+            "id": 47
+        }, 
+        {
+            "gdeg": 3, 
+            "prox": 0.0022711171530090495, 
+            "label": "volter", 
+            "gid": 8537, 
+            "lemme": "volter", 
+            "prox_color": [
+                255, 
+                152, 
+                148
+            ], 
+            "id": 48
+        }, 
+        {
+            "gdeg": 22, 
+            "prox": 0.0022484338625939414, 
+            "label": "\u00e9voluer", 
+            "gid": 8851, 
+            "lemme": "\u00e9voluer", 
+            "prox_color": [
+                255, 
+                157, 
+                220
+            ], 
+            "id": 49
+        }
+    ]
+}
