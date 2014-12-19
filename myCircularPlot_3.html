@@ -163,7 +163,7 @@ function linkArc(d){
         .attr("class", "node")
         .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("r", 3);  //radius
+        .attr("r", 3)  //radius
         .style("fill", "#001" ); //function(d) { return color(d.id); });
 
 });  // <-- fin lecture Json
