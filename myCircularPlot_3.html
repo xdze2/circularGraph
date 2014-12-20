@@ -95,7 +95,7 @@ d3.json("myData_tourner.json", function(error, myData) {
   nodeA =  svg.selectAll("a")
         .data(nodes).enter()
     .append("a")
-      .attr("xlink:href", function(d){ return '/square/'+d['label']+'/' ; } )
+      .attr("xlink:href", function(d){ return '/'+d['label']+'/' ; } )
       .attr("class", "label")
       .attr("id", function(d) { return "node-" + d['id']; })
       .on("mouseover", mouseOverLabel)
