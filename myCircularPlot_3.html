@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
 .link {
   fill: none;
   stroke:#001;
+}
+.link.intra {
   stroke-width: 1.6px;
   stroke-opacity: .35;
    
 }
-.linkQuery {
-  fill: none;
-  stroke:#001;
+.link.query {
   stroke-width: 1.2px;
-  stroke-opacity: .1;
-   
+  stroke-opacity: .1;  
 }
-.linkInter{
-  fill: none;
+.link.inter{
   stroke:#110;
   stroke-width: 2.2px;
   stroke-opacity: .65;  
 }
+.link.over{
+    stroke:#F01;
+    stroke-width: 3px;
+    stroke-opacity: .9;  
+}
+
+
+.label  {
+    fill: #000;
+    font-family: sans-serif;
+}
+.label.over {
+    fill: #F00;
+    font-weight: bold;
+}
 
 .node {
   stroke: None;
-  fill: #000;
 }
-.nodeQuery {
-   stroke: #66f;
-  stroke-width: 5px;
-  fill: #66f;
+.node.query {
+  stroke: #100;
+  stroke-width: 1.6px;
+  fill: #FFF;
 }
-.node:hover {
-    fill:#0A4;
-}
-.label {
-  
-  fill: #000;
-}
-.label:hover{
-    fill: #094;
-}
+
+
 
 
 </style>
@@ -67,8 +70,7 @@ var svg = d3.select("body").append("svg")
         .append("g");
         //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
 
-/* -- start JSON -- */
-//myData_tourner.json  myData_manger.json   myData_rouler.jso
+/* ---- start JSON ---- */
 d3.json("myData_tourner.json", function(error, myData) {
     var nodes = myData['nodes'],
         links = myData['links'],
@@ -78,7 +80,6 @@ d3.json("myData_tourner.json", function(error, myData) {
 
     //console.log( iDelta )
     //console.log( nodes[1]['id'] )
-
     //nNodes = nodes.length;
    
 
@@ -89,7 +90,10 @@ d3.json("myData_tourner.json", function(error, myData) {
         .data(nodes).enter()
     .append("a")
       .attr("xlink:href", "https://github.com/mbostock/d3/wiki/Tutorials")
-      .attr("class", "label");
+      .attr("class", "label")
+      .attr("id", function(d) { return "node-" + d['id']; })
+      .on("mouseover", mouseOverLabel)
+      .on("mouseout", mouseOutLabel)
 
      var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
      var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
@@ -108,14 +112,14 @@ d3.json("myData_tourner.json", function(error, myData) {
                  s += "text-anchor:end; ";
                } else {   s+= "text-anchor:start; ";  }        
             
-                s+= "font: "+ fontSizeScale(d[ degName ]) +"px sans-serif;";
+                s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
                 s+= "dominant-baseline: middle;"
             return s; } )
-        .attr("transform", function(d){return translateLabel(d);})
-         .on("mouseover", mouseOverLabel);
+        .attr("transform", function(d){return translateLabel(d);});
+
 
     nodeA.append("circle")
-        .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'nodeQuery' }
+        .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
                                 else{ return 'node' }
             })
         .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
@@ -123,8 +127,38 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("r", puceRadius) ;
 
 function mouseOverLabel(d){
-    console.log(  d['label'] )
+    //console.log(  d['label'] )
+
+  svg.selectAll("path.link.target-" + d['id'])
+      .classed("over", true)
+      .each( function(d){ 
+          this.parentNode.appendChild(this);   // go on top layer
+            svg.select("#node-" + d['s']).classed('over', true );
+                         } );
+
+  svg.selectAll("path.link.source-"  + d['id'])
+      .classed("over", true) 
+      .each( function(d){ 
+          this.parentNode.appendChild(this);   // go on top layer
+            svg.select("#node-" + d['t']).classed('over', true );
+                         } );
     }
+function mouseOutLabel(d){
+
+  svg.selectAll("path.link.target-" + d['id'])
+      .classed("over", false)   
+        .each( function(d){ 
+            svg.select("#node-" + d['s']).classed('over', false );
+                         } );
+
+  svg.selectAll("path.link.source-" + d['id'])
+      .classed("over", false)        
+     .each( function(d){ 
+            svg.select("#node-" + d['t']).classed('over', false );
+                         } );
+
+    }
+
 function translateLabel(d){
     var outerRad = radius + 10;
     var dx = xCenter+outerRad*Math.cos( deltaTheta*iDelta[ d['id'] ]  );
@@ -141,11 +175,12 @@ function translateLabel(d){
 svg.selectAll(".link")
     .data(links)
   .enter().append("path")
-    .attr("class", function(d){
-         if( d["type"]==="query" ){ return "linkQuery"; }
-            else if (d["type"]==="inter")  { return "linkInter"; }
-            else    { return "link"; }
-                              }  )
+    .attr("class", function(d){ var c = 'link ';
+         if( d["type"]==="query" ){ c += "query"; }
+            else if (d["type"]==="inter")  { c += "inter"; }
+            else    { c += "intra"; }
+                c += ' source-'+d['s'] + ' target-'+d['t'];
+              return c;   }  )
     .attr("d", function(d){ return linkArc(d) ;} );  //linkArc(d); } );
 
    // .style("stroke", function(d) { return color(d.id); });
