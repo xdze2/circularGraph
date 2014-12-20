@@ -27,6 +27,11 @@
   stroke: None;
   fill: #000;
 }
+.nodeQuery {
+   stroke: #66f;
+  stroke-width: 5px;
+  fill: #66f;
+}
 .node:hover {
     fill:#0A4;
 }
@@ -68,8 +73,9 @@ d3.json("myData_tourner.json", function(error, myData) {
     var nodes = myData['nodes'],
         links = myData['links'],
         iDelta = myData['iDelta'],
-        nNodes = myData['nNodes'];
-    
+        nNodes = myData['nNodes'],
+        query = myData['query'];
+
     //console.log( iDelta )
     //console.log( nodes[1]['id'] )
 
@@ -94,7 +100,7 @@ d3.json("myData_tourner.json", function(error, myData) {
 
     nodeA.append("text")
        .text( function(d){ return d['label'] ; })
-        .attr("y", 4 ) 
+        .attr("y", 1 ) 
         .attr("x", 0) 
         .attr("style", function(d){
             var s = '';    
@@ -103,14 +109,18 @@ d3.json("myData_tourner.json", function(error, myData) {
                } else {   s+= "text-anchor:start; ";  }        
             
                 s+= "font: "+ fontSizeScale(d[ degName ]) +"px sans-serif;";
+                s+= "dominant-baseline: middle;"
             return s; } )
         .attr("transform", function(d){return translateLabel(d);})
 
     nodeA.append("circle")
-        .attr("class", "node")
+        .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'nodeQuery' }
+                                else{ return 'node' }
+            })
         .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("r", puceRadius) ;
+
 
 function translateLabel(d){
     var outerRad = radius + 10;
