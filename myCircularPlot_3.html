@@ -22,14 +22,22 @@
   stroke-width: 2.2px;
   stroke-opacity: .65;  
 }
-.li
+
 .node {
-  stroke: none;
+  stroke: None;
   fill: #000;
 }
-.label {
-  font: 16px sans-serif;
+.node:hover {
+    fill:#0A4;
 }
+.label {
+  
+  fill: #000;
+}
+.label:hover{
+    fill: #094;
+}
+
 
 </style>
 <body>
@@ -45,6 +53,7 @@ var width = window.innerWidth,
 var xCenter = width/2,
     yCenter = height-30; 
 
+var puceRadius = 3;
 
 
 var svg = d3.select("body").append("svg")
@@ -61,8 +70,7 @@ d3.json("myData_tourner.json", function(error, myData) {
         iDelta = myData['iDelta'],
         nNodes = myData['nNodes'];
     
-    console.log( iDelta )
- 
+    //console.log( iDelta )
     //console.log( nodes[1]['id'] )
 
     //nNodes = nodes.length;
@@ -71,19 +79,38 @@ d3.json("myData_tourner.json", function(error, myData) {
     var deltaTheta = -Math.PI/(nNodes-1);  // en radian
 
 /* -- Labels -- */
-    svg.selectAll("nodesLabel")
-        .data(nodes)
-      .enter().append("text")
-        .attr("class", "label")
+  nodeA =  svg.selectAll("a")
+        .data(nodes).enter()
+    .append("a")
+      .attr("xlink:href", "https://github.com/mbostock/d3/wiki/Tutorials")
+      .attr("class", "label");
+
+     var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
+     var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
+        // console.log( degMax )
+     var fontSizeScale = d3.scale.pow().exponent(.5)
+                              .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
+                                .range([13,24]);
+
+    nodeA.append("text")
        .text( function(d){ return d['label'] ; })
         .attr("y", 4 ) 
         .attr("x", 0) 
         .attr("style", function(d){
+            var s = '';    
             if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )<0 ){
-                 return "text-anchor:end";
-               } else {   return "text-anchor:start";  }        
-            })
-        .attr("transform", function(d){return translateLabel(d);});
+                 s += "text-anchor:end; ";
+               } else {   s+= "text-anchor:start; ";  }        
+            
+                s+= "font: "+ fontSizeScale(d[ degName ]) +"px sans-serif;";
+            return s; } )
+        .attr("transform", function(d){return translateLabel(d);})
+
+    nodeA.append("circle")
+        .attr("class", "node")
+        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("r", puceRadius) ;
 
 function translateLabel(d){
     var outerRad = radius + 10;
@@ -93,7 +120,8 @@ function translateLabel(d){
     if( dx - xCenter < 0) { var sens = 180; }
     else { var sens = 0;  }
 
-    return "translate("+dx+", "+dy+") rotate("+ (sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) +") "
+    var angle = .75*(sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) //<- coefficient 'brosse'
+    return "translate("+dx+", "+dy+") rotate("+ angle +") "
 }
 
 /* -- Liens -- */
@@ -134,7 +162,7 @@ function linkCurve(d){
 }
 function linkArc(d){
     // liens en arc de cercle 
-    var R = radius - 3;
+    var R = radius - puceRadius;
 
     var startX = xCenter+R*Math.cos( deltaTheta*iDelta[d['s']]  ),
         startY = yCenter+R*Math.sin( deltaTheta*iDelta[d['s']]  );
@@ -156,15 +184,15 @@ function linkArc(d){
     return path;
 }
 
-// Ajout des puces
-    svg.selectAll(".node")
+// Ajout des puces  (a la fin pour etre dessus les liens)
+/*    svg.selectAll(".node")
         .data(nodes)
       .enter().append("circle")
         .attr("class", "node")
         .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("r", 3);  //radius
-        .style("fill", "#001" ); //function(d) { return color(d.id); });
+        .attr("r", 3) ; //radius */
+      //  .style("fill", "#001" ); //function(d) { return color(d.id); });
 
 });  // <-- fin lecture Json
 
