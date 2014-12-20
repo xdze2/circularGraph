@@ -21,7 +21,7 @@
 }
 .link.over{
     stroke:#F01;
-    stroke-width: 3px;
+    stroke-width: 2.8px;
     stroke-opacity: .9;  
 }
 .link.noOver {
@@ -34,7 +34,9 @@
 }
 .label.over {
     fill: #F00;
-    font-weight: bold;
+}
+.label.over.mouse {
+    font-weight: 900;
 }
 
 .node {
@@ -133,7 +135,7 @@ d3.json("myData_tourner.json", function(error, myData) {
 /* -- mouse Over -- */
 function mouseOverLabel(d){
     //console.log(  d['label'] )
-    svg.select("#node-" + d['id']).classed('over', true );// le noeud sous la souris
+    svg.select("#node-" + d['id']).classed('over mouse', true );// le noeud sous la souris
 
 svg.selectAll("path.link")
     .classed("noOver", true);
@@ -156,7 +158,7 @@ svg.selectAll("path.link")
                          } );
     }
 function mouseOutLabel(d){
-     svg.select("#node-" + d['id']).classed('over', false ); // le noeud sous la souris
+     svg.select("#node-" + d['id']).classed('over mouse', false ); // le noeud sous la souris
   
 svg.selectAll("path.link")
     .classed("noOver", false);
