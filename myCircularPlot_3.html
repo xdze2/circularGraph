@@ -112,6 +112,7 @@ d3.json("myData_tourner.json", function(error, myData) {
                 s+= "dominant-baseline: middle;"
             return s; } )
         .attr("transform", function(d){return translateLabel(d);})
+         .on("mouseover", mouseOverLabel);
 
     nodeA.append("circle")
         .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'nodeQuery' }
@@ -121,7 +122,9 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("r", puceRadius) ;
 
-
+function mouseOverLabel(d){
+    console.log(  d['label'] )
+    }
 function translateLabel(d){
     var outerRad = radius + 10;
     var dx = xCenter+outerRad*Math.cos( deltaTheta*iDelta[ d['id'] ]  );
