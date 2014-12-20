@@ -76,7 +76,7 @@ var svg = d3.select("body").append("svg")
         .append("g");
         //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
 
-/* ---- start JSON ---- */
+/* ---- start JSON ---- */  //d3.json("/data/{{query}}", function(error, myData) {
 d3.json("myData_tourner.json", function(error, myData) {
     var nodes = myData['nodes'],
         links = myData['links'],
@@ -95,7 +95,7 @@ d3.json("myData_tourner.json", function(error, myData) {
   nodeA =  svg.selectAll("a")
         .data(nodes).enter()
     .append("a")
-      .attr("xlink:href", "https://github.com/mbostock/d3/wiki/Tutorials")
+      .attr("xlink:href", function(d){ return '/square/'+d['label']+'/' ; } )
       .attr("class", "label")
       .attr("id", function(d) { return "node-" + d['id']; })
       .on("mouseover", mouseOverLabel)
