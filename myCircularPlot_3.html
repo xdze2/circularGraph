@@ -24,7 +24,9 @@
     stroke-width: 3px;
     stroke-opacity: .9;  
 }
-
+.link.noOver {
+  stroke-opacity: .15;  
+}
 
 .label  {
     fill: #000;
@@ -43,7 +45,9 @@
   stroke-width: 1.6px;
   fill: #FFF;
 }
-
+.label.over .query {
+  stroke: #F00;
+}
 
 
 
@@ -126,33 +130,47 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("r", puceRadius) ;
 
+/* -- mouse Over -- */
 function mouseOverLabel(d){
     //console.log(  d['label'] )
+    svg.select("#node-" + d['id']).classed('over', true );// le noeud sous la souris
+
+svg.selectAll("path.link")
+    .classed("noOver", true);
 
   svg.selectAll("path.link.target-" + d['id'])
       .classed("over", true)
+      .classed("noOver", false)
       .each( function(d){ 
           this.parentNode.appendChild(this);   // go on top layer
             svg.select("#node-" + d['s']).classed('over', true );
                          } );
 
+
   svg.selectAll("path.link.source-"  + d['id'])
       .classed("over", true) 
+    .classed("noOver", false) 
       .each( function(d){ 
           this.parentNode.appendChild(this);   // go on top layer
             svg.select("#node-" + d['t']).classed('over', true );
                          } );
     }
 function mouseOutLabel(d){
+     svg.select("#node-" + d['id']).classed('over', false ); // le noeud sous la souris
+  
+svg.selectAll("path.link")
+    .classed("noOver", false);
 
-  svg.selectAll("path.link.target-" + d['id'])
-      .classed("over", false)   
+svg.selectAll("path.link.target-" + d['id'])
+      .classed("over", false)
+    .classed("noOver", false) 
         .each( function(d){ 
             svg.select("#node-" + d['s']).classed('over', false );
                          } );
 
   svg.selectAll("path.link.source-" + d['id'])
-      .classed("over", false)        
+      .classed("over", false)
+      .classed("noOver", false)      
      .each( function(d){ 
             svg.select("#node-" + d['t']).classed('over', false );
                          } );
