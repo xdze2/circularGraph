@@ -87,7 +87,7 @@ var svg = d3.select("body").append("svg")
         //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
 
 /* ---- start JSON ---- */  //d3.json("/data/{{query}}", function(error, myData) {
-d3.json("myData_tourner.json", function(error, myData) {
+d3.json("myData_comprendre.json", function(error, myData) {
     var nodes = myData['nodes'],
         links = myData['links'],
         iDelta = myData['iDelta'],
@@ -99,7 +99,7 @@ d3.json("myData_tourner.json", function(error, myData) {
     //nNodes = nodes.length;
    
 
-    var deltaTheta = -Math.PI/(nNodes-1);  // en radian
+    var deltaTheta = Math.PI/(nNodes-1);  // en radian
 
 /* -- Labels -- */
   nodeA =  svg.selectAll("a")
@@ -124,7 +124,7 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("x", 0) 
         .attr("style", function(d){
             var s = '';    
-            if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )<0 ){
+            if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )>0 ){
                  s += "text-anchor:end; ";
                } else {   s+= "text-anchor:start; ";  }        
             
@@ -138,70 +138,78 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
                                 else{ return 'node' }
             })
-        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("cx", function(d) { return xPosition( radius , iDelta[ d['id'] ]   ); })
+        .attr("cy", function(d) { return yPosition( radius , iDelta[ d['id'] ]   ); })
         .attr("r", puceRadius) ;
 
 
+    function xPosition( rayon , i ){
+        return xCenter - rayon*Math.cos( deltaTheta*i  );
+    }
+    function yPosition( rayon , i ){
+        return yCenter - rayon*Math.sin(  deltaTheta*i  );
+    }
 
 /* -- mouse Over -- */
 function mouseOverLabel(d){
     //console.log(  d['label'] )
     svg.select("#node-" + d['id']).classed('over mouse', true );// le noeud sous la souris
 
-svg.selectAll("path.link")
-    .classed("noOver", true);
+    svg.selectAll("path.link")
+        .classed("noOver", true);
 
-  svg.selectAll("path.link.target-" + d['id'])
-      .classed("over", true)
-      .classed("noOver", false)
-      .each( function(d){ 
-          this.parentNode.appendChild(this);   // go on top layer
-            svg.select("#node-" + d['s']).classed('over', true );
-                         } );
+    svg.selectAll("path.link.target-" + d['id'])
+        .classed("over", true)
+        .classed("noOver", false)
+        .each( function(d){ 
+                this.parentNode.appendChild(this);   // go on top layer
+                svg.select("#node-" + d['s']).classed('over', true );
+              } );
 
+      svg.selectAll("path.link.source-"  + d['id'])
+          .classed("over", true) 
+        .classed("noOver", false) 
+          .each( function(d){ 
+                    this.parentNode.appendChild(this);   // go on top layer
+                    svg.select("#node-" + d['t']).classed('over', true );
+                 } );
+}
 
-  svg.selectAll("path.link.source-"  + d['id'])
-      .classed("over", true) 
-    .classed("noOver", false) 
-      .each( function(d){ 
-          this.parentNode.appendChild(this);   // go on top layer
-            svg.select("#node-" + d['t']).classed('over', true );
-                         } );
-    }
 function mouseOutLabel(d){
      svg.select("#node-" + d['id']).classed('over mouse', false ); // le noeud sous la souris
   
-svg.selectAll("path.link")
-    .classed("noOver", false);
+    svg.selectAll("path.link")
+        .classed("noOver", false);
 
-svg.selectAll("path.link.target-" + d['id'])
-      .classed("over", false)
-    .classed("noOver", false) 
-        .each( function(d){ 
-            svg.select("#node-" + d['s']).classed('over', false );
-                         } );
+    svg.selectAll("path.link.target-" + d['id'])
+          .classed("over", false)
+        .classed("noOver", false) 
+            .each( function(d){ 
+                svg.select("#node-" + d['s']).classed('over', false );
+                             } );
 
-  svg.selectAll("path.link.source-" + d['id'])
-      .classed("over", false)
-      .classed("noOver", false)      
-     .each( function(d){ 
-            svg.select("#node-" + d['t']).classed('over', false );
-                         } );
-
-    }
+      svg.selectAll("path.link.source-" + d['id'])
+          .classed("over", false)
+          .classed("noOver", false)      
+          .each( function(d){ 
+                svg.select("#node-" + d['t']).classed('over', false );
+                } );
+}
 
 
 // ------
 function translateLabel(d){
-    var outerRad = radius + 10;
-    var dx = xCenter+outerRad*Math.cos( deltaTheta*iDelta[ d['id'] ]  );
-    var dy = yCenter+outerRad*Math.sin( deltaTheta*iDelta[ d['id'] ]   );
 
-    if( dx - xCenter < 0) { var sens = 180; }
-    else { var sens = 0;  }
+    var outerRad = radius + 10;
+
+    var dx = xPosition( outerRad , iDelta[ d['id'] ]   );
+    var dy = yPosition( outerRad , iDelta[ d['id'] ]   );
+
+    if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )>0 ) { var sens = 0; }
+    else { var sens = -180;  }
 
     var angle = .75*(sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) //<- coefficient 'brosse'
+
     return "translate("+dx+", "+dy+") rotate("+ angle +") "
 }
 
@@ -210,29 +218,27 @@ svg.selectAll(".link")
     .data(links)
   .enter().append("path")
     .attr("class", function(d){ var c = 'link ';
-         if( d["type"]==="query" ){ c += "query"; }
+            if( d["type"]==="query" ){ c += "query"; }
             else if (d["type"]==="inter")  { c += "inter"; }
             else    { c += "intra"; }
-                c += ' source-'+d['s'] + ' target-'+d['t'];
-              return c;   }  )
-    .attr("d", function(d){ return linkArc(d) ;} );  //linkArc(d); } );
-
-   // .style("stroke", function(d) { return color(d.id); });
+            c += ' source-'+d['s'] + ' target-'+d['t'];
+            return c;   }  )
+    .attr("d", function(d){ return linkArc(d) ;} ); 
 
 
 /* -- Roll over pour les liens  -- */
     svg.selectAll("path.link").on("mouseover", mouseOverLink)
                                   .on("mouseout", mouseOutLink); 
 function mouseOverLink(d){
-        svg.select("#node-" + d['s']).classed('overLink', true );
-        svg.select("#node-" + d['t']).classed('overLink', true );
+      svg.select("#node-" + d['s']).classed('overLink', true );
+      svg.select("#node-" + d['t']).classed('overLink', true );
 
       svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
           .classed("overLink", true)
           .each( function(d){ 
               this.parentNode.appendChild(this);   // go on top layer     
          } );
-    }
+}
 
 function mouseOutLink(d){
         svg.select("#node-" + d['s']).classed('overLink', false );
@@ -240,8 +246,38 @@ function mouseOutLink(d){
 
       svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
           .classed("overLink", false)
-    }
+}
 
+function linkArc(d){
+    // liens en arc de cercle 
+    var R = radius - puceRadius;
+
+    var startX = xPosition( R , iDelta[ d['s'] ]   );
+        startY = yPosition( R , iDelta[ d['s'] ]   );
+
+    var endX = xPosition( R , iDelta[ d['t'] ]   );
+        endY = yPosition( R , iDelta[ d['t'] ]   );
+
+    // ** !!! rayon infini  ***
+    var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
+
+    if( phi > Math.PI*0.99 ) { 
+        path = "m "+startX+","+startY+" L "+endX+","+endY ;
+        return path
+    }   
+
+    var r = Math.tan( phi/2 )*R;
+    
+    // gestion de l'orientation de l'arc (flag) :
+    if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 0;   }
+    else { var flag = 1; }
+
+    var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
+
+    return path;
+}
+
+/*
 function linkCurve(d){
      // liens en coube de bezier 
 
@@ -263,31 +299,7 @@ function linkCurve(d){
     var path = "m "+startX+","+startY+" C"+startXmiddle+","+startYmiddle+" "+endXmiddle+","+endYmiddle+" "+endX+","+endY ;
 
     return path;
-}
-function linkArc(d){
-    // liens en arc de cercle 
-    var R = radius - puceRadius;
-
-    var startX = xCenter+R*Math.cos( deltaTheta*iDelta[d['s']]  ),
-        startY = yCenter+R*Math.sin( deltaTheta*iDelta[d['s']]  );
-
-    var endX = xCenter+R*Math.cos( deltaTheta*iDelta[d['t']]  ),
-        endY = yCenter+R*Math.sin( deltaTheta*iDelta[d['t']]  );
-
-    var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
-        // ** !!! rayon infini  ***
-
-    var r = Math.tan( phi/2 )*R;
-    
-    // gestion de l'orientation de l'arc (flag) :
-    if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 1;   }
-    else { var flag = 0; }
-
-    var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
-
-    return path;
-}
-
+}*/
 // Ajout des puces  (a la fin pour etre dessus les liens)
 /*    svg.selectAll(".node")
         .data(nodes)
