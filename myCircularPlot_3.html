@@ -51,7 +51,17 @@
   stroke: #F00;
 }
 
-
+.label.overLink {
+    fill: #34E;
+}
+.link.overLink {
+    stroke: #34E;
+    stroke-width:2.8px;
+    stroke-opacity: .9;  
+}
+.label.overLink .query {
+  stroke: #34E;
+}
 
 </style>
 <body>
@@ -132,6 +142,8 @@ d3.json("myData_tourner.json", function(error, myData) {
         .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
         .attr("r", puceRadius) ;
 
+
+
 /* -- mouse Over -- */
 function mouseOverLabel(d){
     //console.log(  d['label'] )
@@ -179,6 +191,8 @@ svg.selectAll("path.link.target-" + d['id'])
 
     }
 
+
+// ------
 function translateLabel(d){
     var outerRad = radius + 10;
     var dx = xCenter+outerRad*Math.cos( deltaTheta*iDelta[ d['id'] ]  );
@@ -205,6 +219,28 @@ svg.selectAll(".link")
 
    // .style("stroke", function(d) { return color(d.id); });
 
+
+/* -- Roll over pour les liens  -- */
+    svg.selectAll("path.link").on("mouseover", mouseOverLink)
+                                  .on("mouseout", mouseOutLink); 
+function mouseOverLink(d){
+        svg.select("#node-" + d['s']).classed('overLink', true );
+        svg.select("#node-" + d['t']).classed('overLink', true );
+
+      svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
+          .classed("overLink", true)
+          .each( function(d){ 
+              this.parentNode.appendChild(this);   // go on top layer     
+         } );
+    }
+
+function mouseOutLink(d){
+        svg.select("#node-" + d['s']).classed('overLink', false );
+        svg.select("#node-" + d['t']).classed('overLink', false );
+
+      svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
+          .classed("overLink", false)
+    }
 
 function linkCurve(d){
      // liens en coube de bezier 
