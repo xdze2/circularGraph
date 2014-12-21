@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.linkIntra {
+  fill: None;
+  fill-opacity:.006;
+  stroke:None;
+  stroke-width: 1.6px;
+  stroke-opacity: .35;
+   
+}
+.linkQuery {
+  fill: none;
+  stroke:#001;
+  stroke-width: 1.2px;
+  stroke-opacity: .01;
+   
+}
+.linkInter{
+  fill: None;
+  fill-opacity:.008;
+  stroke:#010101;
+  stroke-width: 10px;
+  stroke-opacity: .08;  
+}
+
+.linkInterSquare {
+    fill:#004;
+    stroke:None;
+}
+.linkSquareIntra {
+  fill: #B66;
+  fill-opacity: 1;
+  stroke:None;
+
+}
+.linkQuerySquare {
+  fill: #680;
+  fill-opacity: 1;
+  stroke: None;
+
+}
+.node {
+  stroke: None;
+  fill: #000;
+}
+.node:hover {
+    fill:#0A4;
+}
+.label {
+  font: 12px sans-serif;
+  fill: #000;
+}
+.label:hover{
+    fill: #094;
+}
+
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.hive.v0.min.js"></script>
+<script>
+
+
+var width = window.innerWidth,
+    height = window.innerHeight,
+    marginBottom = 220,
+    xCenter = width/2;
+
+
+var puceRadius = 3;
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+        .append("g");
+
+/* -- start JSON -- */
+//myData_tourner.json  myData_manger.json   myData_rouler.jso
+d3.json("/data/{{query}}", function(error, myData) {
+
+    var nodes = myData['nodes'],
+        links = myData['links'],
+        iDelta = myData['iDelta'],
+        nNodes = myData['nNodes'];
+    
+    console.log( iDelta )
+ 
+    //console.log( nodes[1]['id'] )
+
+    //nNodes = nodes.length;
+   
+
+    var deltaZ = .8*width/(nNodes-1);  
+
+    var rectSize = .7*deltaZ/Math.sqrt(2) ;
+
+/* -- Labels -- */
+  nodeA =  svg.selectAll("a")
+        .data(nodes).enter()
+    .append("a")
+      .attr("xlink:href", function(d){ return '/square/'+d['label']+'/' ; } )
+      .attr("class", "label");
+
+    nodeA.append("text")
+       .text( function(d){ return d['label'] ; })
+        .attr("y", 4 ) 
+        .attr("x", 0) 
+        .attr("style", "text-anchor:end" )
+        .attr("transform", function(d){return translateLabel(d);})
+
+  /*  nodeA.append("circle")
+        .attr("class", "node")
+        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("r", puceRadius) ; */
+
+function translateLabel(d){
+
+    var dy = height - marginBottom + rectSize*.0;
+    var dx = xCenter + deltaZ*(iDelta[ d['id'] ] - nNodes/2 ) - rectSize*.0 ;
+
+    return "translate("+dx+", "+dy+") rotate( -45 )"
+}
+
+
+function translateLink( d ){
+
+    var refPointX = height - marginBottom;
+    
+    var minId = Math.min( iDelta[d['s']], iDelta[d['t']] );
+    var refPointY = xCenter + deltaZ*(minId - nNodes/2 )  ;
+
+    var dy = refPointX - Math.abs( deltaZ*(iDelta[d['s']]-iDelta[d['t']] )/2 ) ;
+    var dx = refPointY + Math.abs( deltaZ*(iDelta[d['s']]-iDelta[d['t']] )/2 ) ;
+
+    return "translate("+dx+", "+dy+")  rotate( 45 )"
+}
+
+/* -- Liens -- */
+
+
+svg.selectAll(".link")
+    .data(links)
+  .enter().append("rect")
+      .attr("width", rectSize )
+      .attr("height", rectSize )
+      .attr( "x",  -.5*rectSize )
+     .attr( "y",  -.5*rectSize )
+        .attr("transform", function(d){return translateLink(d);})
+    .attr("class", function(d){
+         if( d["type"]==="query" ){ return "linkQuerySquare"; }
+            else if (d["type"]==="inter")  { return "linkInterSquare"; }
+            else    { return "linkSquareIntra"; }
+                              }  );
+svg.selectAll(".link")
+    .data(links)
+  .enter().append("path")
+    .attr("class", function(d){
+         if( d["type"]==="query" ){ return "linkQuery"; }
+            else if (d["type"]==="inter")  { return "linkInter"; }
+            else    { return "linkIntra"; }
+                              }  )
+    .attr("d", function(d){ return linkSquare(d) ;} );  //linkArc(d); } );
+
+
+function linkSquare( d ) {
+
+    var refPointY = height - marginBottom;
+    
+    var minId = Math.min( iDelta[d['s']], iDelta[d['t']] );
+    var maxId = Math.max( iDelta[d['s']], iDelta[d['t']] );
+
+    var refPointX = xCenter + deltaZ*(minId - nNodes/2 )  ;
+
+    var dy = refPointY - Math.abs( deltaZ*(iDelta[d['s']]-iDelta[d['t']] )/2 ) ;
+    var dx = refPointX + Math.abs( deltaZ*(iDelta[d['s']]-iDelta[d['t']] )/2 ) ;
+
+    var endX = xCenter + deltaZ*(maxId - nNodes/2 )  ;
+    var endY =  refPointY;
+
+    var path = "M "+refPointX+","+refPointY+" L"+dx+","+dy+" "+endX+","+endY ;//+" Z"  ;
+
+    return path;
+}
+
+/*
+function linkCurve(d){
+     // liens en coube de bezier 
+
+    var arc = radius*Math.abs( deltaTheta*(iDelta[d['s']]-iDelta[d['t']] ));
+    var innerRad = Math.max( 0.65*radius, radius-0.85*arc ); //*arc;
+
+    var startX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['s']]  ),
+        startY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['s']]  );
+
+    var startXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['s']]  ),
+        startYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['s']]  );
+
+    var endXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['t']]  ),
+        endYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['t']]  );
+
+    var endX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['t']]  ),
+        endY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['t']]  );
+
+    var path = "m "+startX+","+startY+" C"+startXmiddle+","+startYmiddle+" "+endXmiddle+","+endYmiddle+" "+endX+","+endY ;
+
+    return path;
+}
+function linkArc(d){
+    // liens en arc de cercle 
+    var R = radius - puceRadius;
+
+    var startX = xCenter+R*Math.cos( deltaTheta*iDelta[d['s']]  ),
+        startY = yCenter+R*Math.sin( deltaTheta*iDelta[d['s']]  );
+
+    var endX = xCenter+R*Math.cos( deltaTheta*iDelta[d['t']]  ),
+        endY = yCenter+R*Math.sin( deltaTheta*iDelta[d['t']]  );
+
+    var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
+        // ** !!! rayon infini  ***
+
+    var r = Math.tan( phi/2 )*R;
+    
+    // gestion de l'orientation de l'arc (flag) :
+    if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 1;   }
+    else { var flag = 0; }
+
+    var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
+
+    return path;
+}
+*/
+// Ajout des puces  (a la fin pour etre dessus les liens)
+/*    svg.selectAll(".node")
+        .data(nodes)
+      .enter().append("circle")
+        .attr("class", "node")
+        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
+        .attr("r", 3) ; //radius */
+      //  .style("fill", "#001" ); //function(d) { return color(d.id); });
+
+});  // <-- fin lecture Json
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{{ titre }}</title>
+    </head>
+<style>
+body {
+    padding:25px;
+    margin:25px;
+}
+</style>
+
+    <body>
+
+<h1> Les 30 gros tags </h1>
+
+            {% for key, value in tagList %}
+              <a href="/tag/{{key}}/">{{key}} ({{value}})</a>,  
+
+            {% endfor %}
+
+
+        <h1>hierachie des tags</h1>
+
+        <p>Donner un tag: [ ... ]</p>
+<p>
+    sinon tester :    <a href="/tag/physics/"> physics </a>
+
+</p>
+    </body>
+</html>
