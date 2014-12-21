@@ -1653,6 +1653,7 @@
         "prox": 0.005535226228740178, 
         "label": "comprendre", 
         "gid": 1413, 
+        "cluster_id": 0, 
         "lemme": "comprendre", 
         "prox_color": [
             255, 
@@ -1668,6 +1669,7 @@
             "prox": 0.012102238789356276, 
             "label": "admettre", 
             "gid": 99, 
+            "cluster_id": 0, 
             "lemme": "admettre", 
             "prox_color": [
                 255, 
@@ -1682,6 +1684,7 @@
             "prox": 0.007512577574227055, 
             "label": "apercevoir", 
             "gid": 339, 
+            "cluster_id": 1, 
             "lemme": "apercevoir", 
             "prox_color": [
                 255, 
@@ -1696,6 +1699,7 @@
             "prox": 0.006822055953828477, 
             "label": "apprendre", 
             "gid": 371, 
+            "cluster_id": 0, 
             "lemme": "apprendre", 
             "prox_color": [
                 255, 
@@ -1710,6 +1714,7 @@
             "prox": 0.006739759155955642, 
             "label": "appr\u00e9cier", 
             "gid": 379, 
+            "cluster_id": 0, 
             "lemme": "appr\u00e9cier", 
             "prox_color": [
                 255, 
@@ -1724,6 +1729,7 @@
             "prox": 0.006700684005455088, 
             "label": "appr\u00e9hender", 
             "gid": 380, 
+            "cluster_id": 0, 
             "lemme": "appr\u00e9hender", 
             "prox_color": [
                 255, 
@@ -1738,6 +1744,7 @@
             "prox": 0.005612204876303679, 
             "label": "comporter", 
             "gid": 1410, 
+            "cluster_id": 2, 
             "lemme": "comporter", 
             "prox_color": [
                 255, 
@@ -1752,6 +1759,7 @@
             "prox": 0.005535226228740178, 
             "label": "comprendre", 
             "gid": 1413, 
+            "cluster_id": 0, 
             "lemme": "comprendre", 
             "prox_color": [
                 255, 
@@ -1766,6 +1774,7 @@
             "prox": 0.005261021046980421, 
             "label": "compter", 
             "gid": 1418, 
+            "cluster_id": 0, 
             "lemme": "compter", 
             "prox_color": [
                 255, 
@@ -1780,6 +1789,7 @@
             "prox": 0.004933073783897742, 
             "label": "concevoir", 
             "gid": 1426, 
+            "cluster_id": 0, 
             "lemme": "concevoir", 
             "prox_color": [
                 255, 
@@ -1794,6 +1804,7 @@
             "prox": 0.004859670700488669, 
             "label": "conna\u00eetre", 
             "gid": 1471, 
+            "cluster_id": 0, 
             "lemme": "conna\u00eetre", 
             "prox_color": [
                 255, 
@@ -1808,6 +1819,7 @@
             "prox": 0.004807703380890134, 
             "label": "consister", 
             "gid": 1480, 
+            "cluster_id": 3, 
             "lemme": "consister", 
             "prox_color": [
                 255, 
@@ -1822,6 +1834,7 @@
             "prox": 0.004769300881303012, 
             "label": "contenir", 
             "gid": 1499, 
+            "cluster_id": 2, 
             "lemme": "contenir", 
             "prox_color": [
                 255, 
@@ -1836,6 +1849,7 @@
             "prox": 0.004665193175764635, 
             "label": "deviner", 
             "gid": 1755, 
+            "cluster_id": 1, 
             "lemme": "deviner", 
             "prox_color": [
                 255, 
@@ -1850,6 +1864,7 @@
             "prox": 0.00454161377917415, 
             "label": "d\u00e9chiffrer", 
             "gid": 2000, 
+            "cluster_id": 1, 
             "lemme": "d\u00e9chiffrer", 
             "prox_color": [
                 255, 
@@ -1864,6 +1879,7 @@
             "prox": 0.0043299582709344295, 
             "label": "d\u00e9coder", 
             "gid": 2018, 
+            "cluster_id": 1, 
             "lemme": "d\u00e9coder", 
             "prox_color": [
                 255, 
@@ -1878,6 +1894,7 @@
             "prox": 0.004271514548322326, 
             "label": "d\u00e9couvrir", 
             "gid": 2056, 
+            "cluster_id": 1, 
             "lemme": "d\u00e9couvrir", 
             "prox_color": [
                 255, 
@@ -1892,6 +1909,7 @@
             "prox": 0.004127124290048825, 
             "label": "d\u00e9m\u00ealer", 
             "gid": 2234, 
+            "cluster_id": 1, 
             "lemme": "d\u00e9m\u00ealer", 
             "prox_color": [
                 255, 
@@ -1906,6 +1924,7 @@
             "prox": 0.004097303366901471, 
             "label": "embrasser", 
             "gid": 2537, 
+            "cluster_id": 0, 
             "lemme": "embrasser", 
             "prox_color": [
                 255, 
@@ -1920,6 +1939,7 @@
             "prox": 0.004079222818303928, 
             "label": "enclore", 
             "gid": 2659, 
+            "cluster_id": 2, 
             "lemme": "enclore", 
             "prox_color": [
                 255, 
@@ -1934,6 +1954,7 @@
             "prox": 0.003968907457223885, 
             "label": "enfermer", 
             "gid": 2694, 
+            "cluster_id": 2, 
             "lemme": "enfermer", 
             "prox_color": [
                 255, 
@@ -1948,6 +1969,7 @@
             "prox": 0.003952275153661401, 
             "label": "englober", 
             "gid": 2723, 
+            "cluster_id": 2, 
             "lemme": "englober", 
             "prox_color": [
                 255, 
@@ -1962,6 +1984,7 @@
             "prox": 0.003801546621095726, 
             "label": "entendre", 
             "gid": 2790, 
+            "cluster_id": 0, 
             "lemme": "entendre", 
             "prox_color": [
                 255, 
@@ -1976,6 +1999,7 @@
             "prox": 0.0037894636264071166, 
             "label": "entrevoir", 
             "gid": 2819, 
+            "cluster_id": 1, 
             "lemme": "entrevoir", 
             "prox_color": [
                 255, 
@@ -1990,6 +2014,7 @@
             "prox": 0.003750768448684494, 
             "label": "envelopper", 
             "gid": 2828, 
+            "cluster_id": 2, 
             "lemme": "envelopper", 
             "prox_color": [
                 255, 
@@ -2004,6 +2029,7 @@
             "prox": 0.0037248709164055846, 
             "label": "imaginer", 
             "gid": 3705, 
+            "cluster_id": 0, 
             "lemme": "imaginer", 
             "prox_color": [
                 255, 
@@ -2018,6 +2044,7 @@
             "prox": 0.0037040705662698134, 
             "label": "inclure", 
             "gid": 3750, 
+            "cluster_id": 2, 
             "lemme": "inclure", 
             "prox_color": [
                 255, 
@@ -2032,6 +2059,7 @@
             "prox": 0.0036734650773983485, 
             "label": "incorporer", 
             "gid": 3753, 
+            "cluster_id": 4, 
             "lemme": "incorporer", 
             "prox_color": [
                 255, 
@@ -2046,6 +2074,7 @@
             "prox": 0.0036225417199575328, 
             "label": "interpr\u00e9ter", 
             "gid": 3836, 
+            "cluster_id": 1, 
             "lemme": "interpr\u00e9ter", 
             "prox_color": [
                 255, 
@@ -2060,6 +2089,7 @@
             "prox": 0.003550318947190614, 
             "label": "juger", 
             "gid": 3929, 
+            "cluster_id": 0, 
             "lemme": "juger", 
             "prox_color": [
                 255, 
@@ -2074,6 +2104,7 @@
             "prox": 0.00346874784368526, 
             "label": "lire", 
             "gid": 4020, 
+            "cluster_id": 1, 
             "lemme": "lire", 
             "prox_color": [
                 255, 
@@ -2088,6 +2119,7 @@
             "prox": 0.003400833751748014, 
             "label": "m\u00e9langer", 
             "gid": 4454, 
+            "cluster_id": 4, 
             "lemme": "m\u00e9langer", 
             "prox_color": [
                 255, 
@@ -2102,6 +2134,7 @@
             "prox": 0.0033431925368351415, 
             "label": "m\u00ealer", 
             "gid": 4469, 
+            "cluster_id": 4, 
             "lemme": "m\u00ealer", 
             "prox_color": [
                 255, 
@@ -2116,6 +2149,7 @@
             "prox": 0.003231661243050992, 
             "label": "penser", 
             "gid": 4748, 
+            "cluster_id": 0, 
             "lemme": "penser", 
             "prox_color": [
                 255, 
@@ -2130,6 +2164,7 @@
             "prox": 0.003201615793570846, 
             "label": "percer", 
             "gid": 4750, 
+            "cluster_id": 1, 
             "lemme": "percer", 
             "prox_color": [
                 255, 
@@ -2144,6 +2179,7 @@
             "prox": 0.003195117485101092, 
             "label": "percevoir", 
             "gid": 4752, 
+            "cluster_id": 1, 
             "lemme": "percevoir", 
             "prox_color": [
                 255, 
@@ -2158,6 +2194,7 @@
             "prox": 0.0031269266311556346, 
             "label": "prendre", 
             "gid": 4962, 
+            "cluster_id": 0, 
             "lemme": "prendre", 
             "prox_color": [
                 255, 
@@ -2172,6 +2209,7 @@
             "prox": 0.0030982294262890506, 
             "label": "p\u00e9n\u00e9trer", 
             "gid": 5140, 
+            "cluster_id": 1, 
             "lemme": "p\u00e9n\u00e9trer", 
             "prox_color": [
                 255, 
@@ -2186,6 +2224,7 @@
             "prox": 0.003088884299731332, 
             "label": "remarquer", 
             "gid": 5429, 
+            "cluster_id": 1, 
             "lemme": "remarquer", 
             "prox_color": [
                 255, 
@@ -2200,6 +2239,7 @@
             "prox": 0.0030710540719839667, 
             "label": "renfermer", 
             "gid": 5503, 
+            "cluster_id": 2, 
             "lemme": "renfermer", 
             "prox_color": [
                 255, 
@@ -2214,6 +2254,7 @@
             "prox": 0.0030663637157302814, 
             "label": "rep\u00e9rer", 
             "gid": 5572, 
+            "cluster_id": 1, 
             "lemme": "rep\u00e9rer", 
             "prox_color": [
                 255, 
@@ -2228,6 +2269,7 @@
             "prox": 0.003042702106152673, 
             "label": "r\u00e9v\u00e9ler", 
             "gid": 5859, 
+            "cluster_id": 1, 
             "lemme": "r\u00e9v\u00e9ler", 
             "prox_color": [
                 255, 
@@ -2242,6 +2284,7 @@
             "prox": 0.0030387552621685037, 
             "label": "s'apercevoir", 
             "gid": 6012, 
+            "cluster_id": 1, 
             "lemme": "s'apercevoir", 
             "prox_color": [
                 255, 
@@ -2256,6 +2299,7 @@
             "prox": 0.0030278394425946793, 
             "label": "s'expliquer", 
             "gid": 6303, 
+            "cluster_id": 5, 
             "lemme": "s'expliquer", 
             "prox_color": [
                 255, 
@@ -2270,6 +2314,7 @@
             "prox": 0.0030234518164282275, 
             "label": "saisir", 
             "gid": 6539, 
+            "cluster_id": 1, 
             "lemme": "saisir", 
             "prox_color": [
                 255, 
@@ -2284,6 +2329,7 @@
             "prox": 0.0030225124628098215, 
             "label": "savoir", 
             "gid": 6573, 
+            "cluster_id": 0, 
             "lemme": "savoir", 
             "prox_color": [
                 255, 
@@ -2298,6 +2344,7 @@
             "prox": 0.002952063330286457, 
             "label": "se composer", 
             "gid": 6730, 
+            "cluster_id": 3, 
             "lemme": "se composer", 
             "prox_color": [
                 255, 
@@ -2312,6 +2359,7 @@
             "prox": 0.0029227473453446447, 
             "label": "sentir", 
             "gid": 7811, 
+            "cluster_id": 1, 
             "lemme": "sentir", 
             "prox_color": [
                 255, 
@@ -2326,6 +2374,7 @@
             "prox": 0.0029121706367124496, 
             "label": "trouver", 
             "gid": 8356, 
+            "cluster_id": 1, 
             "lemme": "trouver", 
             "prox_color": [
                 255, 
@@ -2340,6 +2389,7 @@
             "prox": 0.00288782673055719, 
             "label": "voir", 
             "gid": 8522, 
+            "cluster_id": 1, 
             "lemme": "voir", 
             "prox_color": [
                 255, 
@@ -2354,6 +2404,7 @@
             "prox": 0.002883651835316927, 
             "label": "y \u00eatre", 
             "gid": 8568, 
+            "cluster_id": 1, 
             "lemme": "y \u00eatre", 
             "prox_color": [
                 255, 
