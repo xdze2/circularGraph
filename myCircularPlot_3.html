@@ -11,7 +11,7 @@
    
 }
 .link.query {
-  stroke-width: 1.2px;
+  stroke-width: 1.4px;
   stroke-opacity: .1;  
 }
 .link.inter{
@@ -50,18 +50,19 @@
 .label.over .query {
   stroke: #F00;
 }
-
+.label.overLink .query {
+ stroke: #34E;
+}
 .label.overLink {
     fill: #34E;
 }
 .link.overLink {
     stroke: #34E;
-    stroke-width:2.8px;
-    stroke-opacity: .9;  
+    stroke-width:2.2px;
+    stroke-opacity: .65;  
 }
-.label.overLink .query {
-  stroke: #34E;
-}
+
+
 
 </style>
 <body>
@@ -92,7 +93,8 @@ d3.json("myData_comprendre.json", function(error, myData) {
         links = myData['links'],
         iDelta = myData['iDelta'],
         nNodes = myData['nNodes'],
-        query = myData['query'];
+        query = myData['query'], 
+        clusters_id = myData['clusters_id'];
 
     //console.log( iDelta )
     //console.log( nodes[1]['id'] )
@@ -221,7 +223,10 @@ svg.selectAll(".link")
             if( d["type"]==="query" ){ c += "query"; }
             else if (d["type"]==="inter")  { c += "inter"; }
             else    { c += "intra"; }
-            c += ' source-'+d['s'] + ' target-'+d['t'];
+            c += ' source-'+d['s'] + ' target-'+d['t'];  // pour le rollover sur les labels
+
+            var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+            c += ' c-'+ c_ids[0] + c_ids[1] ;  // pour le rollover sur les liens
             return c;   }  )
     .attr("d", function(d){ return linkArc(d) ;} ); 
 
@@ -233,19 +238,40 @@ function mouseOverLink(d){
       svg.select("#node-" + d['s']).classed('overLink', true );
       svg.select("#node-" + d['t']).classed('overLink', true );
 
-      svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
-          .classed("overLink", true)
-          .each( function(d){ 
-              this.parentNode.appendChild(this);   // go on top layer     
-         } );
-}
+        var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+        var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
 
+    svg.selectAll("path.link")
+        .classed("noOver", true);
+
+    svg.selectAll("path.link." + c_class )
+        .classed("noOver", false)
+        .classed("overLink", true)
+        .each( function(d){ 
+                this.parentNode.appendChild(this);   // go on top layer
+                svg.select("#node-" + d['s']).classed('overLink', true );
+                svg.select("#node-" + d['t']).classed('overLink', true );
+              } );
+
+
+}
 function mouseOutLink(d){
+
+        var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+        var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
+
         svg.select("#node-" + d['s']).classed('overLink', false );
         svg.select("#node-" + d['t']).classed('overLink', false );
 
-      svg.selectAll("path.link.source-" + d['s']+".target-"+d['t'] )
+        svg.selectAll("path.link")
+            .classed("noOver", false);
+
+        svg.selectAll("path.link." + c_class )
           .classed("overLink", false)
+           .each( function(d){ 
+                    svg.select("#node-" + d['s']).classed('overLink', false );
+                    svg.select("#node-" + d['t']).classed('overLink', false );
+                  } );
 }
 
 function linkArc(d){
