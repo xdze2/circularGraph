@@ -10,7 +10,7 @@ from math import sqrt
 import requests
 import json
 
-url = "http://kodexlab.com/cnrtl/graph/verb/api/play"
+url = "http://kodexlab.com/cnrtl/graph/adj/api/play"
 
 app = Flask(__name__)
 
@@ -21,7 +21,7 @@ app = Flask(__name__)
 @app.route('/')
 def accueil():
 
-   return render_template('layout_circular.html', query='tourner' )
+   return render_template('layout_circular.html', query='rouge' )
 
 @app.route('/<query>/')
 def queryPage(query):

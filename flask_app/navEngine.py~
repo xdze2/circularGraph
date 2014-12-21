@@ -27,7 +27,7 @@ def accueil():
 def queryPage(query):
    #tagList = sorted(  tagsCounts.iteritems() , key=lambda x : x[1], reverse=True )[:100]
    # nEnfant, enfantList = enfants( 'racine', nbre=30 )
-    return render_template('graph.html', query=query )
+    return render_template('layout_circular.html', query=query )
 
 @app.route('/square/<query>/')
 def querySquarePage(query):
