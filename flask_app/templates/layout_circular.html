@@ -95,49 +95,48 @@ var svg = d3.select("body").append("svg")
 draw( 'tourner' );
 
 function draw( query ){
+//http://stackoverflow.com/questions/18831949/d3js-make-new-parent-data-descend-into-child-nodes
 
     /* ---- start JSON ---- */
     d3.json("/data/"+query, function(error, myData) {
+
         var nodes = myData['nodes'],
             links = myData['links'],
-       //     iDelta = myData['iDelta'],
             nNodes = myData['nNodes'],
             query = myData['query'];
-      //      clusters_id = myData['clusters_id'];
-
-       
-
+          //      clusters_id = myData['clusters_id'];
+          //     iDelta = myData['iDelta'],
+           
         var deltaTheta = Math.PI/(nNodes-1);  // en radian
 
-    /* -- Labels -- */
-      var nodesElts =  svg.selectAll("text")
+        /* -- Labels -- */
+        var g =  svg.selectAll("g.label")
             .data(nodes, function(d){return d['gid'];} )
         
-      nodesElts.exit().remove();
-   //     nodesElts.exit().select("text").transition().remove();
+        g.exit().remove();  //supprime tt les anciens
+       // nodesElts.exit().selectAll('g.label text').remove();  //supprime tt les anciens
 
-
-             //   .duration(1000)
-              //  .attr("transform", function(d){return translateLabel(d);});
 
       //  nodesElts.select("circle.node").transition();
             //    .duration(1000)
             //   .attr("cx", function(d) { return xPosition( radius , d['iDelta']   ); })
             //   .attr("cy", function(d) { return yPosition( radius , d['iDelta']   ); });
 
-   /*    var nodeA =  nodesElts.enter()
-        .append("a")
-         // .attr("xlink:href", function(d){ return '/'+d['label']+'/' ; } )
-          .attr("class", "label")
-          .attr("id", function(d) { return "node-" + d['gid']; })
-          .on("mouseover", mouseOverLabel)
-          .on("mouseout", mouseOutLabel)
-          .on( "click", onClick )
-           
-*/
-         
-         //nodesElts.selectAll("a text").transition();         
+      gEnter = g.enter().append("g")
+              .attr("class", "label")
+              .attr("id", function(d) { return "node-" + d['gid']; })
+                    //  .on("mouseover", mouseOverLabel)
+                    //  .on("mouseout", mouseOutLabel)
+              .on( "click", onClick );
 
+       gEnter.append("text")   
+              .text( function(d){ return d['label'] ; })
+              .attr("y", 1 ) 
+              .attr("x", 0);
+
+       gEnter.append("circle")
+              .attr("r", puceRadius);
+                
          var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
          var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
 
@@ -145,33 +144,30 @@ function draw( query ){
                                  .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
                                  .range([13, 24]);
 
-   var  newNode = nodesElts.enter().append("text")
-           .text( function(d){ return d['label'] ; })
-            .attr("y", 1 ) 
-            .attr("x", 0);
+         // update groups and children ...
+        g.each( function( d, i){
+               var group = d3.select(this);
+               group.select("text")
+                .attr("style", function(d){   
+                        var s = '';    
+                        if( Math.cos( deltaTheta*d['iDelta']  )>0 ){  s += "text-anchor:end; "; }
+                        else {   s+= "text-anchor:start; ";  }        
+                            
+                        s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
+                        s+= "dominant-baseline: middle;"
+                        return s;
+                    } )
+                .attr("transform", function(d){return translateLabel(d);});
 
-            nodesElts.attr("style", function(d){
-                var s = '';    
-                if( Math.cos( deltaTheta*d['iDelta']  )>0 ){
-                     s += "text-anchor:end; ";
-                   } else {   s+= "text-anchor:start; ";  }        
-                
-                    s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
-                    s+= "dominant-baseline: middle;"
-                return s; } )
-            .attr("transform", function(d){return translateLabel(d);})
-             .on( "click", onClick );
-        
-
-/*
-        nodeA.append("circle")
-            .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
+            group.select("circle")
+                .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
                                     else{ return 'node' }
                 })
             .attr("cx", function(d) { return xPosition( radius ,  d['iDelta']    ); })
-            .attr("cy", function(d) { return yPosition( radius ,  d['iDelta']    ); })
-            .attr("r", puceRadius) ;
-*/
+            .attr("cy", function(d) { return yPosition( radius ,  d['iDelta']    ); }) ;
+        })
+
+
 
         function xPosition( rayon , i ){
             return xCenter - rayon*Math.cos( deltaTheta*i  );
