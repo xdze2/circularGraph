@@ -63,21 +63,17 @@ def graphdata(query):
     # ### Formatage pour le graph circulaire
 
 
+    # In[8]:
+
     myData = {}
 
     myData['links'] = data['results']['graph']['es']
     myData['nodes'] = data['results']['graph']['vs']
 
 
-    # In[8]:
+    # In[28]:
 
-    #for d in data['results']['graph']['vs']:
-    #    print d['label'],
-
-
-    # In[9]:
-
-    # Dico de correspondance vertex -> id du cluster
+    # Dico de correspondance:  id local vertex -> id du cluster
     clusters_id = {}
     for id_cluster , c in enumerate( data['results']['clusters']['clusters'] ):
         for i, vertex_id in enumerate( c['vids'] ):
@@ -87,21 +83,30 @@ def graphdata(query):
     myData['clusters_id'] = clusters_id
 
 
-    # In[26]:
+    # In[29]:
 
     # Enregistre le cluster_id pour chaque  node
+    #  et créer un dico idLoc -> idGraph 
+
+    loc2graph = {}
 
     for i, node in enumerate( myData['nodes'] ):
         myData['nodes'][i]['cluster_id'] = clusters_id[ node['id'] ]
+        loc2graph[ node['id'] ]  = node['gid']
+
+
+    # In[30]:
+
+    # Enregistre les Graph_id dans les dico "liens"
+    for i, link in enumerate( myData['links'] ):
+        myData['links'][i]['gid_s'] =  loc2graph[ link['s'] ]
+        myData['links'][i]['gid_t'] =  loc2graph[ link['t'] ]
         
+        a = [ loc2graph[ link['s'] ], loc2graph[ link['t'] ]]
+        myData['links'][i]['id'] =  str( min(a) )+ str( max(a) )  #astuce pour créer un identifiant unique de chaque lien
 
 
-    # In[27]:
-
-    #print myData['nodes'][40]
-
-
-    # In[28]:
+    # In[31]:
 
     # Retrouve et Enregistre la requête
     myData['query'] = None
@@ -111,14 +116,14 @@ def graphdata(query):
             myData['query'] = n
             print n['lemme']
             
-    #print myData['query']
+    print myData['query']
 
     # --- retrouve l'id du cluster de la requete ---
     id_cluster_query = myData['clusters_id'][ myData['query']['id'] ]
-    #print ' id cluster de la requete: ', id_cluster_query
+    print ' id cluster de la requete: ', id_cluster_query
 
 
-    # In[29]:
+    # In[33]:
 
     # créer une liste ordonnées des Noeux, en inserrant les espaces vide entre les clusters
     # donne l'angle  : theta = iDelta * delta   en fonction de l'id du noeud
@@ -129,15 +134,16 @@ def graphdata(query):
     c_list = data["results"]['clusters']['clusters']
     c_list.insert( 0, c_list.pop( id_cluster_query ) ) 
 
-
-    # In[30]:
-
     # on place la requete en haut de son cluster ...
     c_list[0]['vids'].append(  c_list[0]['vids'].pop( c_list[0]['vids'].index(myData['query']['id']) ) )
-    #print c_list[0]['vids']
 
 
-    # In[31]:
+    # In[34]:
+
+    print c_list[0]['vids']
+
+
+    # In[36]:
 
     iDelta = {}
     i = 0
@@ -151,10 +157,26 @@ def graphdata(query):
         i = i + 1 # espace vide entre cluster
         
     nNodes = i - 1
-    #print nNodes
+    print nNodes
 
     myData['iDelta'] = iDelta
     myData['nNodes'] = nNodes
+
+
+    # In[39]:
+
+    # Enregistre les iDelta dans le dico Nodes
+    for v in myData['nodes']:
+        v['iDelta'] = iDelta[  v['id'] ]
+        
+    print myData['nodes'][:2]
+
+    # Enregistre les iDelta dans le dico Links
+    for i, link in enumerate( myData['links'] ):
+        myData['links'][i]['iDelta_s'] =  iDelta[ link['s'] ]
+        myData['links'][i]['iDelta_t'] =  iDelta[ link['t'] ]
+        
+    print myData['links'][:2]
 
 
     # In[32]:
@@ -180,13 +202,11 @@ def graphdata(query):
         degreeDic[ link['s'] ] = degreeDic.get( link['s'], 0 ) + 1
         degreeDic[ link['t'] ] = degreeDic.get( link['t'], 0 ) + 1
 
-    #print degreeDic
+    print degreeDic
 
     # enregistre les valeurs dans le dico Nodes
     for v in myData['nodes']:
         v['deg_loc'] = degreeDic[  v['id'] ]
-        
-    #print myData['nodes'][:2]
 
 
     return jsonify(**myData)

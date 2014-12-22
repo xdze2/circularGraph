@@ -91,258 +91,265 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
         .append("g");
-        //.attr("transform", "translate( "+leftMargin+", 20 )" ); // only margin
 
-/* ---- start JSON ---- */  //d3.json("/data/{{query}}", function(error, myData) {
-d3.json("/data/{{query}}", function(error, myData) {
-    var nodes = myData['nodes'],
-        links = myData['links'],
-        iDelta = myData['iDelta'],
-        nNodes = myData['nNodes'],
-        query = myData['query'], 
-        clusters_id = myData['clusters_id'];
+draw( 'tourner' );
 
-    //console.log( iDelta )
-    //console.log( nodes[1]['id'] )
-    //nNodes = nodes.length;
-   
+function draw( query ){
 
-    var deltaTheta = Math.PI/(nNodes-1);  // en radian
+    /* ---- start JSON ---- */
+    d3.json("/data/"+query, function(error, myData) {
+        var nodes = myData['nodes'],
+            links = myData['links'],
+       //     iDelta = myData['iDelta'],
+            nNodes = myData['nNodes'],
+            query = myData['query'];
+      //      clusters_id = myData['clusters_id'];
 
-/* -- Labels -- */
-  nodeA =  svg.selectAll("a")
-        .data(nodes).enter()
-    .append("a")
-      .attr("xlink:href", function(d){ return '/'+d['label']+'/' ; } )
-      .attr("class", "label")
-      .attr("id", function(d) { return "node-" + d['id']; })
-      .on("mouseover", mouseOverLabel)
-      .on("mouseout", mouseOutLabel)
+       
 
-     var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
-     var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
-        // console.log( degMax )
-     var fontSizeScale = d3.scale.pow().exponent(.5)
-                              .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
-                                .range([13,24]);
+        var deltaTheta = Math.PI/(nNodes-1);  // en radian
 
-    nodeA.append("text")
-       .text( function(d){ return d['label'] ; })
-        .attr("y", 1 ) 
-        .attr("x", 0) 
-        .attr("style", function(d){
-            var s = '';    
-            if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )>0 ){
-                 s += "text-anchor:end; ";
-               } else {   s+= "text-anchor:start; ";  }        
-            
-                s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
-                s+= "dominant-baseline: middle;"
-            return s; } )
-        .attr("transform", function(d){return translateLabel(d);});
+    /* -- Labels -- */
+      var nodesElts =  svg.selectAll("text")
+            .data(nodes, function(d){return d['gid'];} )
+        
+      nodesElts.exit().remove();
+   //     nodesElts.exit().select("text").transition().remove();
 
 
-    nodeA.append("circle")
-        .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
-                                else{ return 'node' }
-            })
-        .attr("cx", function(d) { return xPosition( radius , iDelta[ d['id'] ]   ); })
-        .attr("cy", function(d) { return yPosition( radius , iDelta[ d['id'] ]   ); })
-        .attr("r", puceRadius) ;
+             //   .duration(1000)
+              //  .attr("transform", function(d){return translateLabel(d);});
 
+      //  nodesElts.select("circle.node").transition();
+            //    .duration(1000)
+            //   .attr("cx", function(d) { return xPosition( radius , d['iDelta']   ); })
+            //   .attr("cy", function(d) { return yPosition( radius , d['iDelta']   ); });
 
-    function xPosition( rayon , i ){
-        return xCenter - rayon*Math.cos( deltaTheta*i  );
-    }
-    function yPosition( rayon , i ){
-        return yCenter - rayon*Math.sin(  deltaTheta*i  );
-    }
+   /*    var nodeA =  nodesElts.enter()
+        .append("a")
+         // .attr("xlink:href", function(d){ return '/'+d['label']+'/' ; } )
+          .attr("class", "label")
+          .attr("id", function(d) { return "node-" + d['gid']; })
+          .on("mouseover", mouseOverLabel)
+          .on("mouseout", mouseOutLabel)
+          .on( "click", onClick )
+           
+*/
+         
+         //nodesElts.selectAll("a text").transition();         
 
-/* -- mouse Over -- */
-function mouseOverLabel(d){
-    //console.log(  d['label'] )
-    svg.select("#node-" + d['id']).classed('over mouse', true );// le noeud sous la souris
+         var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
+         var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
 
-    svg.selectAll("path.link")
-        .classed("noOver", true);
+         var fontSizeScale = d3.scale.pow().exponent(.5)
+                                 .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
+                                 .range([13, 24]);
 
-    svg.selectAll("path.link.target-" + d['id'])
-        .classed("over", true)
-        .classed("noOver", false)
-        .each( function(d){ 
-                this.parentNode.appendChild(this);   // go on top layer
-                svg.select("#node-" + d['s']).classed('over', true );
-              } );
+   var  newNode = nodesElts.enter().append("text")
+           .text( function(d){ return d['label'] ; })
+            .attr("y", 1 ) 
+            .attr("x", 0);
 
-      svg.selectAll("path.link.source-"  + d['id'])
-          .classed("over", true) 
-        .classed("noOver", false) 
-          .each( function(d){ 
-                    this.parentNode.appendChild(this);   // go on top layer
-                    svg.select("#node-" + d['t']).classed('over', true );
-                 } );
-}
+            nodesElts.attr("style", function(d){
+                var s = '';    
+                if( Math.cos( deltaTheta*d['iDelta']  )>0 ){
+                     s += "text-anchor:end; ";
+                   } else {   s+= "text-anchor:start; ";  }        
+                
+                    s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
+                    s+= "dominant-baseline: middle;"
+                return s; } )
+            .attr("transform", function(d){return translateLabel(d);})
+             .on( "click", onClick );
+        
 
-function mouseOutLabel(d){
-     svg.select("#node-" + d['id']).classed('over mouse', false ); // le noeud sous la souris
-  
-    svg.selectAll("path.link")
-        .classed("noOver", false);
+/*
+        nodeA.append("circle")
+            .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
+                                    else{ return 'node' }
+                })
+            .attr("cx", function(d) { return xPosition( radius ,  d['iDelta']    ); })
+            .attr("cy", function(d) { return yPosition( radius ,  d['iDelta']    ); })
+            .attr("r", puceRadius) ;
+*/
 
-    svg.selectAll("path.link.target-" + d['id'])
-          .classed("over", false)
-        .classed("noOver", false) 
+        function xPosition( rayon , i ){
+            return xCenter - rayon*Math.cos( deltaTheta*i  );
+        }
+        function yPosition( rayon , i ){
+            return yCenter - rayon*Math.sin(  deltaTheta*i  );
+        }
+
+    /* -- mouse Over -- */
+    function mouseOverLabel(d){
+        //console.log(  d['label'] )
+        svg.select("#node-" + d['gid']).classed('over mouse', true );// le noeud sous la souris
+
+        svg.selectAll("path.link")
+            .classed("noOver", true);
+
+        svg.selectAll("path.link.target-" + d['id'])
+            .classed("over", true)
+            .classed("noOver", false)
             .each( function(d){ 
-                svg.select("#node-" + d['s']).classed('over', false );
-                             } );
+                    this.parentNode.appendChild(this);   // go on top layer
+                    svg.select("#node-" + d['s']).classed('over', true );
+                  } );
 
-      svg.selectAll("path.link.source-" + d['id'])
-          .classed("over", false)
-          .classed("noOver", false)      
-          .each( function(d){ 
-                svg.select("#node-" + d['t']).classed('over', false );
-                } );
-}
+          svg.selectAll("path.link.source-"  + d['id'])
+              .classed("over", true) 
+            .classed("noOver", false) 
+              .each( function(d){ 
+                        this.parentNode.appendChild(this);   // go on top layer
+                        svg.select("#node-" + d['t']).classed('over', true );
+                     } );
+    }
 
-
-// ------
-function translateLabel(d){
-
-    var outerRad = radius + 10;
-
-    var dx = xPosition( outerRad , iDelta[ d['id'] ]   );
-    var dy = yPosition( outerRad , iDelta[ d['id'] ]   );
-
-    if( Math.cos( deltaTheta*iDelta[ d['id'] ]  )>0 ) { var sens = 0; }
-    else { var sens = -180;  }
-
-    var angle = .75*(sens+deltaTheta*iDelta[ d['id'] ]*180/Math.PI) //<- coefficient 'brosse'
-
-    return "translate("+dx+", "+dy+") rotate("+ angle +") "
-}
-
-/* -- Liens -- */
-svg.selectAll(".link")
-    .data(links)
-  .enter().append("path")
-    .attr("class", function(d){ var c = 'link ';
-            if( d["type"]==="query" ){ c += "query"; }
-            else if (d["type"]==="inter")  { c += "inter"; }
-            else    { c += "intra"; }
-            c += ' source-'+d['s'] + ' target-'+d['t'];  // pour le rollover sur les labels
-
-            var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
-            c += ' c-'+ c_ids[0] + c_ids[1] ;  // pour le rollover sur les liens
-            return c;   }  )
-    .attr("d", function(d){ return linkArc(d) ;} ); 
-
-
-/* -- Roll over pour les liens  -- */
-    svg.selectAll("path.link").on("mouseover", mouseOverLink)
-                                  .on("mouseout", mouseOutLink); 
-function mouseOverLink(d){
-      svg.select("#node-" + d['s']).classed('overLink', true );
-      svg.select("#node-" + d['t']).classed('overLink', true );
-
-        var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
-        var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
-
-    svg.selectAll("path.link")
-        .classed("noOver", true);
-
-    svg.selectAll("path.link." + c_class )
-        .classed("noOver", false)
-        .classed("overLink", true)
-        .each( function(d){ 
-                this.parentNode.appendChild(this);   // go on top layer
-                svg.select("#node-" + d['s']).classed('overLink', true );
-                svg.select("#node-" + d['t']).classed('overLink', true );
-              } );
-
-
-}
-function mouseOutLink(d){
-
-        var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
-        var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
-
-        svg.select("#node-" + d['s']).classed('overLink', false );
-        svg.select("#node-" + d['t']).classed('overLink', false );
-
+    function mouseOutLabel(d){
+         svg.select("#node-" + d['gid']).classed('over mouse', false ); // le noeud sous la souris
+      
         svg.selectAll("path.link")
             .classed("noOver", false);
 
-        svg.selectAll("path.link." + c_class )
-          .classed("overLink", false)
-           .each( function(d){ 
-                    svg.select("#node-" + d['s']).classed('overLink', false );
-                    svg.select("#node-" + d['t']).classed('overLink', false );
-                  } );
-}
+        svg.selectAll("path.link.target-" + d['id'])
+              .classed("over", false)
+            .classed("noOver", false) 
+                .each( function(d){ 
+                    svg.select("#node-" + d['s']).classed('over', false );
+                                 } );
 
-function linkArc(d){
-    // liens en arc de cercle 
-    var R = radius - puceRadius;
+          svg.selectAll("path.link.source-" + d['id'])
+              .classed("over", false)
+              .classed("noOver", false)      
+              .each( function(d){ 
+                    svg.select("#node-" + d['t']).classed('over', false );
+                    } );
+    }
 
-    var startX = xPosition( R , iDelta[ d['s'] ]   );
-        startY = yPosition( R , iDelta[ d['s'] ]   );
 
-    var endX = xPosition( R , iDelta[ d['t'] ]   );
-        endY = yPosition( R , iDelta[ d['t'] ]   );
+   // ------
+    function translateLabel( d ){
 
-    // ** !!! rayon infini  ***
-    var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
+        var outerRad = radius + 10;
 
-    if( phi > Math.PI*0.99 ) { 
-        path = "m "+startX+","+startY+" L "+endX+","+endY ;
-        return path
-    }   
+        var dx = xPosition( outerRad ,  d['iDelta']  );
+        var dy = yPosition( outerRad ,  d['iDelta']  );
 
-    var r = Math.tan( phi/2 )*R;
-    
-    // gestion de l'orientation de l'arc (flag) :
-    if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 0;   }
-    else { var flag = 1; }
+        if( Math.cos( deltaTheta*d['iDelta']  )>0 ) { var sens = 0; }
+        else { var sens = -180;  }
 
-    var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
+        var angle = .75*(sens+deltaTheta*d['iDelta']*180/Math.PI) //<- coefficient 'brosse'
 
-    return path;
-}
+        return "translate("+dx+", "+dy+") rotate("+ angle +") "
+    }
 
+   /* -- Liens -- */
 /*
-function linkCurve(d){
-     // liens en coube de bezier 
+    linksElts = svg.selectAll(".link")
+             .data(links, function(d){return d['id'];});
 
-    var arc = radius*Math.abs( deltaTheta*(iDelta[d['s']]-iDelta[d['t']] ));
-    var innerRad = Math.max( 0.65*radius, radius-0.85*arc ); //*arc;
+        linksElts.exit().transition()
+           // .duration(1000)
+          //  .attr('style', 'opacity:0')
+            .remove();
+       
+        linksElts.transition();
+            //.duration(1000);
+            //.attr("d", function(d){ return linkArc(d) ;} ); 
 
-    var startX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['s']]  ),
-        startY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['s']]  );
+      linksElts.enter().append("path")
+        .attr("class", function(d){ var c = 'link ';
+                if( d["type"]==="query" ){ c += "query"; }
+                else if (d["type"]==="inter")  { c += "inter"; }
+                else    { c += "intra"; }
+                c += ' source-'+d['s'] + ' target-'+d['t'];  // pour le rollover sur les labels
 
-    var startXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['s']]  ),
-        startYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['s']]  );
+                var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+                c += ' c-'+ c_ids[0] + c_ids[1] ;  // pour le rollover sur les liens
+                return c;   }  )
+        .attr("d", function(d){ return linkArc(d) ;} ); 
 
-    var endXmiddle = xCenter+innerRad*Math.cos( deltaTheta*iDelta[d['t']]  ),
-        endYmiddle = yCenter+innerRad*Math.sin( deltaTheta*iDelta[d['t']]  );
+*/
+    /* -- Roll over pour les liens  -- */
+/*        svg.selectAll("path.link").on("mouseover", mouseOverLink)
+                                      .on("mouseout", mouseOutLink); 
+    function mouseOverLink(d){
+          svg.select("#node-" + d['s']).classed('overLink', true );
+          svg.select("#node-" + d['t']).classed('overLink', true );
 
-    var endX = xCenter+radius*Math.cos( deltaTheta*iDelta[d['t']]  ),
-        endY = yCenter+radius*Math.sin( deltaTheta*iDelta[d['t']]  );
+            var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+            var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
 
-    var path = "m "+startX+","+startY+" C"+startXmiddle+","+startYmiddle+" "+endXmiddle+","+endYmiddle+" "+endX+","+endY ;
+        svg.selectAll("path.link")
+            .classed("noOver", true);
 
-    return path;
-}*/
-// Ajout des puces  (a la fin pour etre dessus les liens)
-/*    svg.selectAll(".node")
-        .data(nodes)
-      .enter().append("circle")
-        .attr("class", "node")
-        .attr("cx", function(d) { return xCenter+radius*Math.cos( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("cy", function(d) { return yCenter+radius*Math.sin( deltaTheta*iDelta[ d['id'] ]   ); })
-        .attr("r", 3) ; //radius */
-      //  .style("fill", "#001" ); //function(d) { return color(d.id); });
+        svg.selectAll("path.link." + c_class )
+            .classed("noOver", false)
+            .classed("overLink", true)
+            .each( function(d){ 
+                    this.parentNode.appendChild(this);   // go on top layer
+                    svg.select("#node-" + d['s']).classed('overLink', true );
+                    svg.select("#node-" + d['t']).classed('overLink', true );
+                  } );
 
-});  // <-- fin lecture Json
+
+    }
+    function mouseOutLink(d){
+
+            var c_ids = [clusters_id[d['s']], clusters_id[d['t']] ].sort();
+            var c_class = 'c-'+ c_ids[0] + c_ids[1] ; 
+
+            svg.select("#node-" + d['s']).classed('overLink', false );
+            svg.select("#node-" + d['t']).classed('overLink', false );
+
+            svg.selectAll("path.link")
+                .classed("noOver", false);
+
+            svg.selectAll("path.link." + c_class )
+              .classed("overLink", false)
+               .each( function(d){ 
+                        svg.select("#node-" + d['s']).classed('overLink', false );
+                        svg.select("#node-" + d['t']).classed('overLink', false );
+                      } );
+    }
+
+    function linkArc( d ){
+        // liens en arc de cercle 
+        var R = radius - puceRadius;
+
+        var startX = xPosition( R , iDelta[ d['s'] ]   );
+            startY = yPosition( R , iDelta[ d['s'] ]   );
+
+        var endX = xPosition( R , iDelta[ d['t'] ]   );
+            endY = yPosition( R , iDelta[ d['t'] ]   );
+
+        // ** !!! rayon infini  ***
+        var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
+
+        if( phi > Math.PI*0.99 ) { 
+            path = "m "+startX+","+startY+" L "+endX+","+endY ;
+            return path
+        }   
+
+        var r = Math.tan( phi/2 )*R;
+        
+        // gestion de l'orientation de l'arc (flag) :
+        if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 0;   }
+        else { var flag = 1; }
+
+        var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
+
+        return path;
+    }
+*/
+
+    });  // <-- fin lecture Json
+}
+
+function onClick( d ){
+    newQuery = d['label'];
+    draw( newQuery );
+}
 
 </script>
 
