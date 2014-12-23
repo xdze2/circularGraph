@@ -86,6 +86,9 @@ var xCenter = width/2,
 
 var puceRadius = 3;
 
+var deltaTheta;
+
+var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -95,83 +98,103 @@ var svg = d3.select("body").append("svg")
 draw( 'tourner' );
 
 function draw( query ){
+// see
+// http://stackoverflow.com/questions/18831949/d3js-make-new-parent-data-descend-into-child-nodes
+// http://stackoverflow.com/questions/17086415/d3-how-to-properly-chain-transitions-on-different-selections
 
     /* ---- start JSON ---- */
     d3.json("/data/"+query, function(error, myData) {
+
         var nodes = myData['nodes'],
             links = myData['links'],
-       //     iDelta = myData['iDelta'],
             nNodes = myData['nNodes'],
             query = myData['query'];
-      //      clusters_id = myData['clusters_id'];
-
-       
-
-        var deltaTheta = Math.PI/(nNodes-1);  // en radian
-
-    /* -- Labels -- */
-      var nodesElts =  svg.selectAll("a")
-            .data(nodes, function(d){return d['gid'];} )
-        
-      nodesElts.exit().remove();
-   //     nodesElts.exit().select("text").transition().remove();
-
-
-             //   .duration(1000)
-              //  .attr("transform", function(d){return translateLabel(d);});
-
-      //  nodesElts.select("circle.node").transition();
-            //    .duration(1000)
-            //   .attr("cx", function(d) { return xPosition( radius , d['iDelta']   ); })
-            //   .attr("cy", function(d) { return yPosition( radius , d['iDelta']   ); });
-
-   /*    var nodeA =  nodesElts.enter()
-        .append("a")
-         // .attr("xlink:href", function(d){ return '/'+d['label']+'/' ; } )
-          .attr("class", "label")
-          .attr("id", function(d) { return "node-" + d['gid']; })
-          .on("mouseover", mouseOverLabel)
-          .on("mouseout", mouseOutLabel)
-          .on( "click", onClick )
            
-*/
-         
-         //nodesElts.selectAll("a text").transition();         
+        deltaTheta = Math.PI/(nNodes-1);  // en radian  (Global... )
 
-         var degName = 'gdeg'; // 'deg_loc';  // Choose deg Local or degre Graph 
+    var dtime = 1000;
+    
+   /* -- Labels -- */
+        // data
+        var objsLab =  svg.selectAll("text")
+            .data(nodes, function(d){return d['gid'];} )
+    
+      /*   // font size
          var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
-
          var fontSizeScale = d3.scale.pow().exponent(.5)
                                  .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
-                                 .range([13, 24]);
+                                 .range([13, 24]);  */
+    
+        // Exit
+        var exitTransition = d3.transition().duration(dtime).each(function() {
+              objsLab.exit()
+                  .style("fill", "red")
+               .transition()
+                  .style("opacity", 1e-6)
+                  .remove();
+        });
 
-   var  newNode = nodesElts.enter().append("text")
-           .text( function(d){ return d['label'] ; })
-            .attr("y", 1 ) 
-            .attr("x", 0);
+        // Update
+        var updateTransition = exitTransition.transition().each(function() {
 
-            nodesElts.attr("style", function(d){
-                var s = '';    
-                if( Math.cos( deltaTheta*d['iDelta']  )>0 ){
-                     s += "text-anchor:end; ";
-                   } else {   s+= "text-anchor:start; ";  }        
+               objsLab
+                /*.attr("style", function(d){   
+                        var s = '';    
+                        if( Math.cos( deltaTheta*d['iDelta']  )>0 ){  s += "text-anchor:end; "; }
+                        else {   s+= "text-anchor:start; ";  }        
+                            
+                        //s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
+                        s+= "dominant-baseline: middle;"
+                        return s;
+                    } ) */
+                     .style("opacity", 1)
+                     .style('fill', '#71bc78' )
+                .transition()
+                   .attr("transform", function(d){return translateLabel(d);})
+                    ;
+             
+                // .transition().duration(duration);
+
+        });
+
+        // Enter
+        var enterTransition = updateTransition.transition().each(function() {
+
+              gEnter = objsLab.enter().append("text")
+                      .attr("class", "label")
+                      .attr("id", function(d) { return "node-" + d['gid']; })
+                            //  .on("mouseover", mouseOverLabel)
+                            //  .on("mouseout", mouseOutLabel)
+                      .on( "click", onClick )
+                      .text( function(d){ return d['label'] ; })
+                      .attr("y", 1 ) 
+                      .attr("x", 0)
+                      /*  .attr("style", function(d){   
+                                var s = '';    
+                                if( Math.cos( deltaTheta*d['iDelta']  )>0 ){  s += "text-anchor:end; "; }
+                                else {   s+= "text-anchor:start; ";  }        
+                                    
+                                //s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
+                                s+= "dominant-baseline: middle;"
+                                //s+= "opacity:0";
+                                //s += "fill:#71bc78"
+                                return s;
+                            } ) */
+                       .style("opacity", 1e-6)
+                        .attr("transform", function(d){return translateLabel(d);})
+                        .transition() // .delay( 300 )
+                           .style('opacity', 1);
+     
+        });
                 
-                    s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
-                    s+= "dominant-baseline: middle;"
-                return s; } )
-            .attr("transform", function(d){return translateLabel(d);})
-             .on( "click", onClick );
-        
 
-/*
-        nodeA.append("circle")
-            .attr("class", function(d){ if( d['id'] == query['id'] ){ return 'node query' }
-                                    else{ return 'node' }
-                })
-            .attr("cx", function(d) { return xPosition( radius ,  d['iDelta']    ); })
-            .attr("cy", function(d) { return yPosition( radius ,  d['iDelta']    ); })
-            .attr("r", puceRadius) ;
-*/
+
+     
+
+    });  // <-- fin lecture Json
+} // <-- fin de Draw
+
+
 
         function xPosition( rayon , i ){
             return xCenter - rayon*Math.cos( deltaTheta*i  );
@@ -343,8 +366,7 @@ function draw( query ){
     }
 */
 
-    });  // <-- fin lecture Json
-}
+
 
 function onClick( d ){
     newQuery = d['label'];
