@@ -42,7 +42,7 @@ def queryTournesol(query):
     if len( query )<1:
         query = 'tourner'
 
-    return render_template('layout_tournesol.html', query=query )
+    return render_template('soltourne.html', query=query )
 
 # -------------------------------------------------------
 @app.route('/data/<query>/')
