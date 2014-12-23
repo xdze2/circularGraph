@@ -126,6 +126,13 @@ d3.json("/data/{{query}}", function(error, myData) {
                               .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
                                 .range([13,24]);
 
+    svg.append('text')
+        .text( query['label']  )
+        .attr("transform", "translate("+(xCenter-radius)+", "+(yCenter-radius-60)+")")
+        .attr("style", "font-size:38px; text-anchor:middle;  font-family: sans-serif; cursor:default;")
+      .on("mouseover", function(){ mouseOverLabel(query) })
+      .on("mouseout", function(){ mouseOutLabel(query) });
+
     nodeA.append("text")
        .text( function(d){ return d['label'] ; })
         .attr("y", 1 ) 
