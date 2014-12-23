@@ -53,6 +53,7 @@
   stroke-width: 1.6px;
   fill: #FFF;
 }
+
 .label.over .query {
   stroke: #F00;
 }
@@ -128,10 +129,20 @@ d3.json("/data/{{query}}", function(error, myData) {
 
     svg.append('text')
         .text( query['label']  )
+        .attr('id', 'title_query')
         .attr("transform", "translate("+(xCenter-radius)+", "+(yCenter-radius-60)+")")
         .attr("style", "font-size:38px; text-anchor:middle;  font-family: sans-serif; cursor:default;")
-      .on("mouseover", function(){ mouseOverLabel(query) })
-      .on("mouseout", function(){ mouseOutLabel(query) });
+      .on("mouseover", function(){ mouseOverLabel(query); tiltQuery( -10 ) ; })
+      .on("mouseout", function(){ mouseOutLabel(query); tiltQuery( 0 )    });
+
+    function tiltQuery(angle){
+
+        var s = svg.select( '#title_query' );
+
+        var xy = d3.transform(s.attr("transform")).translate;
+
+        s.attr("transform", 'translate('+xy[0]+','+xy[1]+')  rotate('+angle+')' );
+    }
 
     nodeA.append("text")
        .text( function(d){ return d['label'] ; })
