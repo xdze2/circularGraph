@@ -259,13 +259,16 @@ for(ni in nodes){
     }
 }
 
+var radiusScale = d3.scale.linear().domain([0, radius])  // .domain([minDataPoint,maxDataPoint])
+                                .range([1,5]);
+
 svg.selectAll(".link")
     .data(allLinks)
   .enter().append("circle")
         .attr("class", "puceLinkOff" )
         .attr("cx", function(d) { return xPosition( getRadius( d ) , getAngle( d )  ) })
         .attr("cy", function(d) { return yPosition( getRadius( d ) , getAngle( d )  ) })
-        .attr("r", 2) ; 
+        .attr("r", function(d) { return radiusScale( getRadius( d ) ); } ) ; 
 
 svg.selectAll(".link")
     .data(links)
@@ -281,7 +284,7 @@ svg.selectAll(".link")
                 return c;   }  )
         .attr("cx", function(d) { return xPosition( getRadius( d ) , getAngle( d )  ) })
         .attr("cy", function(d) { return yPosition( getRadius( d ) , getAngle( d )  ) })
-        .attr("r", puceLinkRadius) 
+        .attr("r", function(d) { return radiusScale( getRadius( d ) ); } ) ; 
         .on("mouseover", mouseOverLink)
         .on("mouseout", mouseOutLink);
 
@@ -411,7 +414,7 @@ function linkCurve(d){
 
 </script>
 
-<p class='nav'>Layout <a href="/{{query}}/">circular</a>, <a href="/square/{{query}}/">square</a>
+<p class='nav'>[ <a href="/{{query}}/">circular</a>, <a href="/square/{{query}}/">square</a> ]
 </p>
 
 </body>
