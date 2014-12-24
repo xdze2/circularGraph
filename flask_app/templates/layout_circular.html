@@ -139,20 +139,19 @@ function draw( query ){
         var updateTransition = exitTransition.transition().each(function() {
 
                objsLab
-                /*.attr("style", function(d){   
+                .attr("style", function(d){   
                         var s = '';    
                         if( Math.cos( deltaTheta*d['iDelta']  )>0 ){  s += "text-anchor:end; "; }
                         else {   s+= "text-anchor:start; ";  }        
                             
                         //s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
-                        s+= "dominant-baseline: middle;"
+                        s+= "dominant-baseline: middle;" ;
                         return s;
-                    } ) */
+                    } ) 
                      .style("opacity", 1)
                      .style('fill', '#71bc78' )
                 .transition()
-                   .attr("transform", function(d){return translateLabel(d);})
-                    ;
+                   .attr("transform", function(d){return translateLabel(d);});
              
                 // .transition().duration(duration);
 
@@ -164,29 +163,74 @@ function draw( query ){
               gEnter = objsLab.enter().append("text")
                       .attr("class", "label")
                       .attr("id", function(d) { return "node-" + d['gid']; })
-                            //  .on("mouseover", mouseOverLabel)
-                            //  .on("mouseout", mouseOutLabel)
+                              .on("mouseover", mouseOverLabel)
+                              .on("mouseout", mouseOutLabel)
                       .on( "click", onClick )
                       .text( function(d){ return d['label'] ; })
                       .attr("y", 1 ) 
                       .attr("x", 0)
-                      /*  .attr("style", function(d){   
+                       .attr("style", function(d){   
                                 var s = '';    
                                 if( Math.cos( deltaTheta*d['iDelta']  )>0 ){  s += "text-anchor:end; "; }
                                 else {   s+= "text-anchor:start; ";  }        
                                     
                                 //s+= "font-size: "+ fontSizeScale(d[ degName ]) +"px ;";
-                                s+= "dominant-baseline: middle;"
+                                s+= "dominant-baseline: middle;" ;
                                 //s+= "opacity:0";
                                 //s += "fill:#71bc78"
                                 return s;
-                            } ) */
+                            } ) 
                        .style("opacity", 1e-6)
                         .attr("transform", function(d){return translateLabel(d);})
                         .transition() // .delay( 300 )
                            .style('opacity', 1);
+
+});
      
+   /* -- Links -- */
+        // data
+        var objsLinks =  svg.selectAll("path")
+            .data(links, function(d){return d['id'];} );
+    
+      /*   // font size
+         var degMax = d3.max( nodes, function(d) { return d[ degName ];} );
+         var fontSizeScale = d3.scale.pow().exponent(.5)
+                                 .domain([1, degMax])  // .domain([minDataPoint,maxDataPoint])
+                                 .range([13, 24]);  */
+    
+        // Exit
+       var exitTransitionLinks = d3.transition().duration(dtime).each(function() {
+              objsLinks.exit().transition()
+                  .remove();
         });
+
+        // Update
+        var updateTransitionLinks = exitTransitionLinks.transition().each(function() {
+
+               objsLinks
+                    .attr("d", function(d){ return linkArc(d) ;} )
+                    .style('opacity', 1e-6)
+                .transition()
+                   .style('opacity', 1)
+             
+
+        });
+
+        // Enter
+        var enterTransitionLinks = updateTransitionLinks.transition().each(function() {
+
+
+              gEnter = objsLinks.enter().append("path")
+                      .attr("class", "link")
+                      .attr("id", function(d) { return "link-" + d['id']; })
+                      .attr("d", function(d){ return linkArc(d) ;} )
+                    .style('opacity', 1e-6)
+                .transition()
+                   .style('opacity', 1);
+
+ 
+
+        }); 
                 
 
 
@@ -336,19 +380,19 @@ function draw( query ){
                         svg.select("#node-" + d['t']).classed('overLink', false );
                       } );
     }
-
+*/
     function linkArc( d ){
         // liens en arc de cercle 
         var R = radius - puceRadius;
 
-        var startX = xPosition( R , iDelta[ d['s'] ]   );
-            startY = yPosition( R , iDelta[ d['s'] ]   );
+        var startX = xPosition( R , d['iDelta_s']  );
+            startY = yPosition( R , d['iDelta_s']   );
 
-        var endX = xPosition( R , iDelta[ d['t'] ]   );
-            endY = yPosition( R , iDelta[ d['t'] ]   );
+        var endX = xPosition( R , d['iDelta_t']   );
+            endY = yPosition( R , d['iDelta_t']  );
 
         // ** !!! rayon infini  ***
-        var phi = Math.abs( deltaTheta*( iDelta[d['s']] - iDelta[d['t']] ));
+        var phi = Math.abs( deltaTheta*( d['iDelta_s'] - d['iDelta_t'] ));
 
         if( phi > Math.PI*0.99 ) { 
             path = "m "+startX+","+startY+" L "+endX+","+endY ;
@@ -358,14 +402,14 @@ function draw( query ){
         var r = Math.tan( phi/2 )*R;
         
         // gestion de l'orientation de l'arc (flag) :
-        if ( (iDelta[d['s']] - iDelta[d['t']] ) < 0 ){ var flag = 0;   }
+        if ( (d['iDelta_s'] - d['iDelta_t']) < 0 ){ var flag = 0;   }
         else { var flag = 1; }
 
         var path = "m "+startX+","+startY+" A"+r+","+r+" 0 0,"+flag+" "+endX+","+endY ;
 
         return path;
     }
-*/
+
 
 
 
