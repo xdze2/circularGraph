@@ -55,6 +55,7 @@ def graphdata(query):
         request = { "query":query }
     else: request = { "query":'tourner' }
 
+    request['options'] = {'clustering':{'name':'Walktrap'}}
     res = requests.get(url, data=json.dumps(request), headers={"content-type":"application/json"})
     data = res.json()
 
