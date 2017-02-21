@@ -1,4 +1,4 @@
-![screenshot](circularGraph/screenshots/graph_rollover.png)
+![screenshot](https://github.com/xdze2/circularGraph/blob/master/screenshots/graph_rollover.png)
 
 circularGraph
 =============
